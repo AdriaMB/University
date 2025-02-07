@@ -1,0 +1,8 @@
+#!/bin/bash
+#finalLoop
+
+#               $() refers to the command execution. We can also use it
+for i in $(ls)
+do
+    echo $i
+done

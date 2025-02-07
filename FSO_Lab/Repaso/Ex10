@@ -1,0 +1,13 @@
+#!/bin/bash
+#list all PID
+
+for i in /proc/[1-9]*
+do
+    pid=$(basename "$i")
+    echo $pid
+done
+
+for i in /proc/[a-z]*
+do
+    echo $i
+done

@@ -1,0 +1,7 @@
+#!/bin/bash
+# info about one process $1
+
+echo "PID" $'\t' "PPID" $'\t' "STATE" $'\t' $'\t'"CMD"
+
+#Now we call the process inf_process
+./inf_process $1d

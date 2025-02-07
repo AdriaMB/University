@@ -1,0 +1,35 @@
+------------------------------------------------
+TEST_AND_SET
+
+int key = 0             //Declaration of key;
+while(test_and_set(&key));
+
+...
+
+key = 0;
+
+//key = 0 -> sets key = 1 and returns 0
+//key = 1 -> sets key = 1 and returns 1
+------------------------------------------------
+SEMAPHORES:
+#include <semaphore.c>
+sem_t sem(&sem_name);
+
+sem_wait(&sem);             // P()
+sem_post(&sem);             // V()
+
+sem_init(&sem_name, 0, initial_value); //init.
+
+------------------------------------------------
+MUTEXES:
+#include <pthread.h>
+
+pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;  //init
+
+pthread_lock(&mutex);        // P()
+pthread_unlock(&mutex);      // V()
+
+
+
+
+

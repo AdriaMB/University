@@ -1,0 +1,19 @@
+total 144
+drwxr-xr-x 1 adria adria   358 Dec 12 22:17 .
+drwxr-xr-x 1 adria adria   360 Dec 12 18:05 ..
+-rwxr-xr-x 1 adria adria 20144 Dec 12 22:17 cat_redir
+-rw-r--r-- 1 adria adria   572 Dec 12 22:16 cat_redir.c
+-rw-r--r-- 1 adria adria   472 Dec 12 18:20 code.txt
+-rw-r--r-- 1 adria adria   608 Dec 12 20:05 descriptor.c
+-rw-r--r-- 1 adria adria   763 Dec 12 20:09 descriptor_output.c
+-rwxr-xr-x 1 adria adria 20192 Dec 12 18:31 example00
+-rw-r--r-- 1 adria adria   729 Dec 12 18:31 example00.c
+-rwx------ 1 adria adria   892 Dec 12 22:12 ls_output.txt
+-rwxr-xr-x 1 adria adria 20144 Dec 12 22:12 ls_redir
+-rw-r--r-- 1 adria adria   572 Dec 12 22:14 ls_redir.c
+-rwx------ 1 adria adria    47 Dec 12 21:47 message.txt
+-rwx------ 1 adria adria    21 Dec 12 22:05 output.txt
+-rwxr-xr-x 1 adria adria 20192 Dec 12 22:05 redir_output
+-rw-r--r-- 1 adria adria   614 Dec 12 22:05 redir_output.c
+-rwxr-xr-x 1 adria adria 20160 Dec 12 21:47 share_file
+-rw-r--r-- 1 adria adria   734 Dec 12 21:47 share_file.c

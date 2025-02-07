@@ -1,0 +1,15 @@
+# The character #! is called Shebang, and indicates the command interpreter we are gonna use
+
+#!/bin/bash
+# arguments
+#                                   $# is the argc of C
+echo The number of arguments is: $#
+
+#                 $0 returns the argv[0] and $@ returns all the rest
+echo The full command line entered is: $0 $@
+
+#               Each argument can be given separately via $0, $1, $2...
+echo The command name is: $0
+echo The first argument is: $1
+echo The second argument is: $2
+echo The third argument is: $3

@@ -1,0 +1,7 @@
+#!/bin/bash
+if test -f $1
+then
+rm $1
+else
+echo "It is a directory and it can't be deleted"
+fi

@@ -1,0 +1,10 @@
+#!/bin/bash
+# variables
+
+name=Alberto
+msg="Hello world"
+
+echo name
+echo $name
+echo msg
+echo $msg

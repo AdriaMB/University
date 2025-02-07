@@ -1,0 +1,4 @@
+#!/bin/bash
+#Info about all processes
+
+./list_all_PID

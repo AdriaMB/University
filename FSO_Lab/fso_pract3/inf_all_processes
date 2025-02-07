@@ -1,0 +1,7 @@
+#!/bin/bash
+echo $'\t'"PID" $'\t' "PPID" $'\t' "STATE" $'\t' "CMD"
+for i in /proc/[0-9]*
+do
+    pid=$(basename "$i")
+    echo $'\t'$pid | $HOME/Desktop/FSO_Lab/fso_pract3/inf_process $pid
+done

@@ -1,0 +1,9 @@
+#!/bin/bash
+#backup
+
+#               * refers to the current directory file
+for k in *
+do
+    cp $k $k.bak
+    echo $k copy created
+done

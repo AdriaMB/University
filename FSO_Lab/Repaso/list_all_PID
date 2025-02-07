@@ -1,0 +1,8 @@
+#!/bin/bash
+#list all PID
+echo "PID" $'\t' "PPID" $'\t' "STATE" $'\t' $'\t'"CMD"
+for i in $(ls -d /proc/[1-9]*)
+do
+    pid=$(basename "$i")
+    ./inf_process $pid
+done

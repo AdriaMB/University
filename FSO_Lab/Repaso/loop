@@ -1,0 +1,19 @@
+#!/bin/bash
+# loop
+
+echo The number of arguments is: $#
+echo The entered command line is: $0 $@
+echo where the arguments are:
+echo $0
+echo $1
+echo $2
+echo $3
+echo This is not an efficient way
+
+echo We use a loop, which is much more efficient:
+echo $0
+for i in "$@"
+do
+    echo $i
+done
+echo Now this is efficiency!

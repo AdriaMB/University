@@ -1,0 +1,4 @@
+#!/bin/bash
+process=$1
+echo  $'\t' $'\t' "PID" $'\t' "PPID" $'\t' "STATE" $'\t' "CMD"
+$HOME/Desktop/FSO_Lab/fso_pract3/inf_process $process

@@ -1,0 +1,12 @@
+COMMANDS:
+
+FILE HANDLING:
+    -int open( filename, mode );
+    -int open( filename, mode, flags )     // returns a file descriptor, int that identifies the file in future operations. It is the position in the table of desciptors of the process that contains the pointer to the open files system table.
+
+    -int close( fd );       // releases the resources allocated by that file
+
+    -int read( fd, &string, size);
+    -int write( fd, &string, size);
+    -pipe
+    -dup2

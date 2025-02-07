@@ -1,0 +1,19 @@
+#!/bin/bash
+#delete_file
+
+if test -d $1
+then
+    echo "It is a directory. It cannot be deleted"
+fi
+
+if test -f $1
+then
+    echo "File found"
+    rm  $1
+    echo "File deleted"
+else
+    echo "It doesn't exists"
+fi
+
+
+
