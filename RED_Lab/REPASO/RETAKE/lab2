@@ -1,0 +1,73 @@
+nc -C -v 158.42.180.62 80
+GET / HTTP/1.0
+
+HTTP/1.1 200 OK
+Date: Wed, 29 Jan 2025 15:23:34 GMT
+Server: Apache/2.4.52 (Ubuntu)
+Last-Modified: Fri, 18 Nov 2022 18:52:02 GMT
+ETag: "f2-5edc3338ea3f3"
+Accept-Ranges: bytes
+Content-Length: 242
+Vary: Accept-Encoding
+Connection: close
+Content-Type: text/html
+
+<html>
+        <head>
+                <meta charset="UTF-8">
+                <title>serveis-rdc.redes.upv.es</title>
+        </head>
+        <body>
+<h1>Bienvenido a la página web de serveis-rdc.redes.upv.es</h1>
+
+<h2>serveis-rdc.redes.upv.es</h2>
+<h2>158.42.180.62</h2>
+
+        </body>
+</html>
+
+
+
+//////////////////////////////////////////////////////////////
+///                                                        ///
+//////////////////////////////////////////////////////////////
+
+GET / HTTP/1.1
+Host: zoltar.redes.upv.es
+
+GET / HTTP/1.1
+Host: serveis.redes.upv.es
+
+
+//////////////////////////////////////////////////////////////
+///                                                        ///
+//////////////////////////////////////////////////////////////
+
+GET / HTTP/1.1
+Host: zoltar.redes.upv.es
+
+GET /oto1.jpg HTTP/1.1
+Host: zoltar.redes.upv.es
+
+GET /oto2.jpg HTTP/1.1
+Host: zoltar.redes.upv.es
+
+
+
+//////////////////////////////////////////////////////////////
+///                                                        ///
+//////////////////////////////////////////////////////////////
+
+GET / HTTP/1.1
+Host: zoltar.redes.upv.es
+Connection: Keep-alive
+Keep-Alive: timeout=50
+
+
+/////////////////////////////////////////////////////////////
+///                                                        ///
+//////////////////////////////////////////////////////////////
+
+GET /oto2.jpg HTTP/1.1
+Host:zoltar.redes.upv.es
+If-modified-since: Wed, 29 Jan 2020 16:36:20 GMT
