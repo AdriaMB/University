@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.target=LibrarySearch
+comment0.text=\r\n\ LibrarySearch\:\ class\ that\ represents\ an\ efficient\ search\ or\ lookup\ engine,\r\n\ i.e.,\ with\ an\ Index\ of\ a\ Digital\ Library.\ To\ this\ end,\ its\ basic\ functions\r\n\ are...\r\n\ 1.-\ INDEXING\:\ create\ the\ library's\ Index,\ represented\ with\ a\ Map\r\n\ \ \ \ \ implemented\ through\ a\ Linked\ Hash\ Table.\r\n\ 2.-\ SEARCHING\:\ look\ up\ from\ the\ library's\ Index\ the\ information\ that\r\n\ \ \ \ \ exists\ in\ it\ about\ a\ given\ word\ or\ term\ (posting\ list).\r\n\ \r\n\ @author\ (EDA-QB)\ \r\n\ @version\ (Curso\ 2021-2022)\r\n
+comment1.params=
+comment1.target=LibrarySearch()
+comment1.text=\r\n\ Creates\ a\ Search\ engine\ for\ the\ Digital\ Library\ formed\ by\ the\ books\r\n\ in\ bookList.\ In\ practice,\ it\ creates\ the\ index\ of\ the\ library\ with,\r\n\ at\ most,\ maxTerms.\r\n\ @throws\ FileNotFoundException\ If\ the\ list\ or\ any\ of\ the\ book's\ files\r\n\ \ \ \ \ are\ not\ where\ they\ are\ expected\ to\ be.\r\n
+comment2.params=bookFile
+comment2.target=boolean\ indexBook(java.lang.String)
+comment2.text=\ Returns\ true\ after\ updating\ the\ Search\ engine\ of\ a\ Digital\ Library\ with\r\n\ \ the\ terms\ contained\ in\ bookFile\ (a\ file.txt).\ As\ a\ consequence,\ the\ library's\r\n\ \ index\ is\ updated\ with\ the\ terms\ in\ bookFile.\r\n\ \ The\ method\ returns\ false\ if\ bookFile\ does\ not\ exist.\r\n
+comment3.params=aWord
+comment3.target=java.lang.String\ search(java.lang.String)
+comment3.text=\r\n\ Returns\ in\ text\ format\ (String)\ the\ result\ of\ searching\ the\ term\ associated\r\n\ to\ aWord\ in\ a\ Digital\ Library's\ Index\ (frequency\ of\ the\ term\ in\ the\ library,\r\n\ and\ list\ of\ book\ titles\ and\ lines\ where\ the\ term\ appears\ in\ the\ library,\ i.e.,\r\n\ its\ Posting\ list).\r\n
+comment4.params=aWord
+comment4.target=boolean\ isTerm(java.lang.String)
+comment4.text=\ Checks\ whether\ aWord\ is\ a\ term\ in\ a\ Digital\ Library's\ Index,\ i.e.,\r\nwhether\ aWord\ is\ non-empty\ and\ contains\ only\ letters.
+comment5.params=n
+comment5.target=libraries.dataStructures.models.ListPOI\ termsRepeated(int)
+comment5.text=\ Returns\ a\ ListPOI\ with\ the\ terms\ of\ the\ Digital\ Library's\ index\ that\r\n\ \ appear\ n\ times\ in\ its\ books,\ or\ null\ if\ none\ exist.\r\n
+comment6.params=n
+comment6.target=libraries.dataStructures.models.ListPOI\ termsRepeatedAlt(int)
+comment7.params=
+comment7.target=libraries.dataStructures.models.ListPOI\ hapax()
+comment7.text=\ Returns\ a\ ListPOI\ with\ the\ terms\ of\ the\ Digital\ Library's\ Index\ that\r\n\ \ appear\ only\ once\ in\ its\ books,\ i.e.,\ the\ so-called\ "hapax\ legomena"\r\n\ \ of\ the\ Digital\ Library,\ or\ null\ if\ none\ exist.\r\n
+numComments=8
