@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckMenuItem?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.input.KeyCodeCombination?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="borderPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.controller.MainViewController">
+   <top>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <MenuBar>
+              <menus>
+                <Menu text="_Archivo">
+                  <items>
+                    <MenuItem fx:id="menuImprimir" mnemonicParsing="false" onAction="#imprimir" text="_Imprimir">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="P" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
+                        <MenuItem fx:id="menuSalir" mnemonicParsing="false" onAction="#salir" text="_Salir" />
+                  </items>
+                </Menu>
+                <Menu text="_Editar">
+                  <items>
+                    <MenuItem fx:id="menuDelete" mnemonicParsing="false" onAction="#delete" text="_Borrar" />
+                        <CheckMenuItem fx:id="menuSeguro" mnemonicParsing="false" onAction="#seguro" text="_Seguro" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <Menu mnemonicParsing="false" text="_Grupo">
+                           <items>
+                              <RadioMenuItem mnemonicParsing="false" selected="true" text="_X">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="ejesToggleGroup" />
+                                 </toggleGroup>
+                              </RadioMenuItem>
+                              <RadioMenuItem mnemonicParsing="false" text="_Y" toggleGroup="$ejesToggleGroup" />
+                              <RadioMenuItem mnemonicParsing="false" text="_Z" toggleGroup="$ejesToggleGroup" />
+                           </items>
+                        </Menu>
+                  </items>
+                </Menu>
+                <Menu text="A_yuda">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+                  <Menu text="_Lanzar">
+                     <items>
+                        <MenuItem fx:id="launchAmazon" mnemonicParsing="false" text="Amazon" />
+                        <MenuItem fx:id="launchAmazon1" mnemonicParsing="false" text="Blogger" />
+                        <MenuItem fx:id="launchAmazon2" mnemonicParsing="false" text="Ebay" />
+                        <MenuItem fx:id="launchAmazon3" mnemonicParsing="false" text="Facebook" />
+                        <MenuItem fx:id="launchAmazon4" mnemonicParsing="false" text="Google+" />
+                     </items>
+                  </Menu>
+                  <Menu text="_Options">
+                     <items>
+                        <Menu mnemonicParsing="false" text="_Grupo">
+                           <items>
+                              <RadioMenuItem fx:id="buyAmazon" mnemonicParsing="false" selected="true" text="Amazon">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="buyersGroup" />
+                                 </toggleGroup>
+                              </RadioMenuItem>
+                              <RadioMenuItem fx:id="buyEbay" mnemonicParsing="false" text="Ebay" toggleGroup="$buyersGroup" />
+                           </items>
+                        </Menu>
+                     </items>
+                  </Menu>
+              </menus>
+            </MenuBar>
+            <ToolBar prefHeight="40.0" prefWidth="200.0">
+              <items>
+                <Button fx:id="amazonButton" mnemonicParsing="false" onAction="#buyAmazonAction">
+                     <graphic>
+                        <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../icons/amazon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="bloggerButton" mnemonicParsing="false" onAction="#openBloggerAction">
+                     <graphic>
+                        <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../icons/bing.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="ebayButton" mnemonicParsing="false" onAction="#buyEbayAction">
+                     <graphic>
+                        <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../icons/ebay.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="facebookButton" mnemonicParsing="false" onAction="#openFacebookAction">
+                     <graphic>
+                        <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../icons/facebook.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button mnemonicParsing="false">
+                     <graphic>
+                        <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../icons/googlePlus.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+              </items>
+            </ToolBar>
+         </children>
+      </VBox>
+   </top>
+   <bottom>
+      <Label fx:id="labelBlog" BorderPane.alignment="BOTTOM_LEFT">
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="10.0" />
+         </BorderPane.margin></Label>
+   </bottom>
+</BorderPane>
