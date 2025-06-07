@@ -1,0 +1,38 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 25 abr 2025, 11:36:25
+    Author     : jescamilla
+*/
+
+.background {
+    -fx-background-color: black;
+}
+
+.button {
+    -fx-background-color: silver;
+    -fx-border-color: black;
+    -fx-border-width: 0.25pt;
+    -fx-font-size: 18pt;
+    -fx-font-family: Helvetica, Arial, sans-serif;
+}
+
+.button:hover {
+    -fx-background-color: darkgray;
+}
+
+.orange-button {
+    -fx-background-color: orange;
+}
+
+.orange-button:hover {
+    -fx-background-color: darkorange;
+}
+
+.display {
+    -fx-background-color: black;
+    -fx-text-fill: white;
+    -fx-font-size: 24pt;
+}
