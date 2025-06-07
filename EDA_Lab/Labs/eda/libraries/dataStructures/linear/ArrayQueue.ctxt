@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.target=ArrayQueue
+comment0.text=\ Implements\ the\ Queue\ interface\ with\ an\ array\r\n\ @author\ (profesores\ EDA\ )\ \r\n\ @version\ 2017\r\n\ @param\ <E>\ type\ of\ the\ elements\ in\ the\ queue\r\n
+comment1.params=
+comment1.target=ArrayQueue()
+comment2.params=x
+comment2.target=void\ enqueue(java.lang.Object)
+comment2.text=adds\ x\ to\ the\ end\ of\ the\ Queue
+comment3.params=
+comment3.target=java.lang.Object\ dequeue()
+comment3.text=IFF\ \!isEmpty()\:\ removes\ the\ first\ element\ of\ the\ Queue
+comment4.params=
+comment4.target=java.lang.Object\ first()
+comment4.text=IFF\ \!isEmpty()\:\ returns\ the\ first\ element\ of\ the\ Queue
+comment5.params=
+comment5.target=boolean\ isEmpty()
+comment5.text=checks\ whether\ the\ Queue\ is\ empty
+comment6.params=indice
+comment6.target=int\ increment(int)
+comment6.text=increments\ an\ index\ in\ a\ circular\ array
+comment7.params=
+comment7.target=void\ duplicateQueue()
+comment7.text=\ \r\n\ duplicates\ the\ capacity\ of\ the\ array\r\n
+numComments=8

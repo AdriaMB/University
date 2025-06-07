@@ -150,6 +150,8 @@ public class Sorting {
      */
     private static <T extends Comparable<T>> T[] mergeSort2(T[] v,
                                                              int i, int f) {
+        /*
+         * PREVIOUS SOLUTION: copy all elements by hand
         if(v.length >= 2){
             int m = (f+i)/2;
             //Create subarrays
@@ -163,27 +165,33 @@ public class Sorting {
             }
             
             v1 = mergeSort2(v1, 0, v1.length-1);  //DIVIDE & CONQUER
-            
-            
-            /**
-             System.out.println("----------------------v1: ");
-            for(int j = 0; j < v1.length; j++){
-                System.out.println(v1[j]);
-            }
-            */
-           
+
             v2 = mergeSort2(v2, 0, v2.length-1);
             
-            
-            /**
-            System.out.println("-----------------------v2: ");
-            for(int j = 0; j < v2.length; j++){
-                System.out.println(v2[j]);
-            }
-            */
             return (T[]) merge2(v1, v2);          //Return the ordered array
         }
         return v;
+        */
+        if(v.length == 1) return v;
+        else if(v. length == 2){
+            if(v[i].compareTo(v[f]) > 0){
+                T aux = v[i];
+                v[i] = v[f];
+                v[f] = aux;
+            }
+            return v;
+        }
+        else{
+            int m = (f+i)/2;
+            T[] aux1 = Arrays.copyOfRange(v, i, m);//copyOfRange includes the first, but excludes the last
+            T[] aux2 = Arrays.copyOfRange(v, m, f+1);//that is why we use f+1: now it copies all elements
+            
+            aux1 = mergeSort2(aux1, 0, aux1.length-1);
+            aux2 = mergeSort2(aux2, 0, aux2.length-1);
+            
+            T[] aux3 = merge2(aux1, aux2);
+            return aux3;
+        }
     }
 
     /**

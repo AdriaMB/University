@@ -2,7 +2,7 @@ package applications.library;
 
 import libraries.dataStructures.models.Map;
 import libraries.dataStructures.models.ListPOI;
-import libraries.dataStructures.linear.LinkedListPOI;
+import libraries.dataStructures.linear.*;
 import libraries.dataStructures.scattered.HashTable;
 import java.util.Scanner;
 import java.io.File;
@@ -213,9 +213,6 @@ public class LibrarySearch {
         if (terms.size() == 0) return null;
         return terms;
     }
-    
-
-    
 
     /** Returns a ListPOI with the terms of the Digital Library's Index that
      *  appear only once in its books, i.e., the so-called "hapax legomena"
@@ -225,4 +222,84 @@ public class LibrarySearch {
         //System.out.println("Before returning the termsRepeated(1)");
         return termsRepeatedAlt (1);
     }
+    
+    
+    //EXAM
+    public ListPOI<Term> startBy(String prefix, String book){
+        if(isTerm(prefix)){
+            ListPOI<Term> keys = index.keys();
+            while(!keys.isEnd()){
+                Term aux = keys.get();
+                String aWord = aux.word;
+                if(aWord.startsWith(prefix)){
+                    ListPOI<Posting> appearances = index.get(aux);
+                    appearances.begin();
+                    boolean appears = false;
+                    while(!appearances.isEnd() && !appears){
+                        String aBook = appearances.get().bookTitle;
+                        if(aBook.compareTo(book) == 0){
+                            //The term appears in book: no need to eliminate
+                            appears = true;
+                            keys.next();
+                        }
+                        else {appearances.next();}
+                    }
+                    if(!appears){keys.remove();}
+                    
+                }
+                else{keys.remove();}
+            }
+            return keys;
+        }
+        else{return null;}
+    }
+    
+    public ListPOI<Term> inTitle(){
+        ListPOI<Term> keys = index.keys();
+        ListPOI<Term> res = new LinkedListPOI<>();
+        
+        while(!keys.isEnd()){
+            Term aux = keys.get();
+            ListPOI<Posting> value = index.get(aux);
+            while(!value.isEnd()){
+                int bookLine = value.get().lineNumber;
+                if(bookLine == 1){
+                    res.add(aux);
+                    break;
+                }
+                value.next();
+            }
+            keys.next();
+        }
+        
+        return res;
+    }
+    
+    public Map<String, ListPOI<Integer>> unionPosting(ListPOI<Term> words){
+        Map<String, ListPOI<Integer>> res = new HashTable<>(10);
+        for(words.begin(); !words.isEnd(); words.next()){
+            Term aux = words.get();
+            ListPOI<Posting> value = index.get(aux);
+            
+            for(value.begin(); !value.isEnd(); value.next()){
+                Posting line = value.get();
+                String book = line.bookTitle;
+                Integer bookLine = line.lineNumber;
+                
+                ListPOI<Integer> bucket = res.get(book);
+                if(bucket == null){
+                    bucket= new SortedLinkedListPOI<>();
+                    bucket.add(bookLine);
+                    res.put(book, bucket);
+                }
+                else{
+                    bucket.add(bookLine);
+                    res.put(book, bucket);
+                }
+            }
+            
+        }
+        return res;
+    }
+    
 }    

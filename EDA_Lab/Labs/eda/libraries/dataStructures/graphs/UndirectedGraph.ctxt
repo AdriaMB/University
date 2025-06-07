@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=UndirectedGraph
+comment0.text=\ UndirectedGraph\ class\:\ implementation\ of\ an\ Undirected\ graph\r\n\ \ (weighted\ or\ unweighted)\ through\ Adjacency\ Lists\:<br>\r\n\ \ an\ Undirected\ graph\ IS\ A\ Directed\ Graph\ such\ that\ if\ the\ Edge\ (i,\ j)\r\n\ \ is\ present\ in\ i's\ Adjacency\ List,\ then\ the\ Edge\ (j,\ i)\ should\ also\r\n\ \ be\ present\ in\ j's\ List.\r\n\r\n\ @version\ December\ 2019\r\n
+comment1.params=numV
+comment1.target=UndirectedGraph(int)
+comment1.text=\ Creates\ an\ empty\ Undirected\ graph\ with\ nV\ vertices.\r\n\ \ @param\ numV\ \ Number\ of\ vertices\ in\ the\ graph\r\n
+comment2.params=i\ j
+comment2.target=void\ addEdge(int,\ int)
+comment2.text=\ If\ it\ isn't\ in\ the\ graph,\ adds\ the\ edge\ (i,\ j)\ to\ an\ Undirected\r\n\ \ Unweighted\ graph,\ at\ the\ end\ of\ the\ list\ of\ adjacent\ vertices\ of\ i.\r\n\ \ It\ also\ adds\ edge\ (j,\ i).\r\n\r\n\ @param\ i\ \ \ \ Source\ vertex\r\n\ @param\ j\ \ \ \ Target\ vertex\r\n
+comment3.params=i\ j\ w
+comment3.target=void\ addEdge(int,\ int,\ double)
+comment3.text=\ If\ it\ isn't\ in\ the\ graph,\ adds\ the\ edge\ (i,\ j)\ with\ weight\ w\ to\ an\r\n\ \ Undirected\ Weighted\ graph,\ at\ the\ end\ of\ the\ list\ of\ adjacent\ vertices\ of\ i.\r\n\ \ It\ also\ adds\ edge\ (j,\ i)\ with\ the\ same\ weight.\r\n\r\n\ @param\ i\ \ \ \ Source\ vertex\r\n\ @param\ j\ \ \ \ Target\ vertex\r\n\ @param\ w\ \ \ \ Weight\ of\ the\ edge\ (i,\ j)\r\n
+numComments=4

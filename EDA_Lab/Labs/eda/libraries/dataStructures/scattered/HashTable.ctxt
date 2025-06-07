@@ -30,6 +30,8 @@ comment17.text=\ Returns\ the\ average\ cost\ to\ locate\ a\ key\ of\r\n\ \ a\ L
 comment18.params=
 comment18.target=java.lang.String\ histogram()
 comment18.text=\ Returns\ a\ String\ with\ the\ occupation\ histogram\r\n\ \ of\ a\ Linked\ Hash\ Table\ in\ textual\ format.\ Thus,\r\n\ \ each\ of\ its\ two\ lines\ show\ two\ integer\ values\r\n\ \ separated\ by\ a\ tab\:\ the\ bucket\ length\ (int\ in\ [0,\ 9])\r\n\ \ and\ the\ number\ of\ buckets\ with\ that\ length.\r\n\ \ ATTENTION\:\ the\ number\ of\ buckets\ in\ each\ line\ i\ IS\:\r\n\ \ (a)\ 0\ <\=\ i\ <\=\ 8\:\ the\ number\ of\ buckets\ in\ the\ Table\r\n\ \ \ \ \ \ with\ exactly\ i\ elements\ (size\ \=\=\ i)\r\n\ \ (b)\ i\ \=\=\ 9\ (last\ line)\:\ the\ number\ of\ buckets\ in\ the\r\n\ \ \ \ \ \ Table\ that\ contain\ 9\ or\ more\ elements.\r\n
+comment19.params=n
+comment19.target=libraries.dataStructures.models.ListPOI\ valueList(int)
 comment2.params=k
 comment2.target=int\ hashIndex(java.lang.Object)
 comment2.text=\r\n\ Returns\ the\ hash\ index\ of\ a\ given\ Entry's\ Key\ k,\r\n\ i.e.\ the\ index\ of\ the\ bucket\ in\ which\ the\ Entry\ should\r\n\ be\ placed.\r\n
@@ -54,4 +56,4 @@ comment8.text=Returns\ the\ size,\ or\ number\ of\ Entries\ of\ a\ Hash\ Table.
 comment9.params=
 comment9.target=int\ numberOfRehashings()
 comment9.text=\ Returns\ the\ number\ of\ Rehashing\ operations\ that\r\nhave\ been\ performed\ during\ the\ Hash\ Table\ operation
-numComments=19
+numComments=20

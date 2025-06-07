@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=Edge
+comment0.text=\ Edge\ Class\:\ represents\ an\ edge\ in\ a\ graph.<br>\r\n\r\n\ \ @version\ november\ 2021\r\n
+comment1.params=a\ b\ w
+comment1.target=Edge(int,\ int,\ double)
+comment1.text=\ Creates\ an\ edge\ (a,\ b)\ with\ weight\ w.\r\n\r\n\ @param\ a\ \ Source\ vertex\r\n\ @param\ b\ \ Target\ vertex\r\n\ @param\ w\ \ Weight\r\n
+comment2.params=
+comment2.target=int\ getSource()
+comment2.text=\ Returns\ the\ source\ vertex\ of\ an\ edge.\r\n\r\n\ @return\ int\ source\ vertex\r\n
+comment3.params=
+comment3.target=int\ getTarget()
+comment3.text=\ Returns\ the\ target\ vertex\ of\ an\ edge.\r\n\r\n\ @return\ int\ target\ vertex\r\n
+comment4.params=
+comment4.target=double\ getWeight()
+comment4.text=\ Reterns\ an\ edge's\ weight\r\n\r\n\ @return\ double\ Weight\ of\ the\ edge\r\n
+comment5.params=e
+comment5.target=int\ compareTo(Edge)
+comment6.params=
+comment6.target=java.lang.String\ toString()
+comment6.text=\ Returns\ a\ String\ that\ represents\ an\ edge\r\n\ \ in\ the\ format\ (source,\ target,\ weight)\r\n\r\n\ @return\ \ String\ that\ represents\ the\ edge\r\n
+numComments=7

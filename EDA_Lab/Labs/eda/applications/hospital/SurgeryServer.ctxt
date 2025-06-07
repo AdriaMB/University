@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=SurgeryServer
+comment0.text=\r\n\ SurgeryServer\ interface\:\r\n\ specifies\ the\ service\ capacity\ of\ a\ surgery\ server\r\n\ and\ the\ methods\ that\ it\ must\ implement\ **independently**\r\n\ of\ whether\ it\ uses\ a\ Queue\ or\ a\ PriorityQueue\r\n\ to\ handle\ waiting\ patients.\r\n\r\n\ @author\ \ EDA\ Professors\r\n\ @version\ April\ 2024\r\n
+comment1.params=p
+comment1.target=void\ addWaiting(Patient)
+comment1.text=\r\n\ Includes\ a\ new\ Patient\ in\ the\ waiting\ list,\ in\ a\ SurgeryServer.\r\n
+comment2.params=
+comment2.target=boolean\ hasPatients()
+comment2.text=\r\n\ Checks\ whether\ there\ is\ any\ patient\ waiting\ in\ a\ SurgeryServer.\r\n
+comment3.params=
+comment3.target=Patient\ getPatient()
+comment3.text=\r\n\ IFF\ hasPatients()\:\ returns\ the\ Patient\ from\ a\ SurgeryServer\ to\ be\ operated.\r\n
+comment4.params=h
+comment4.target=Patient\ operatePatient(int)
+comment4.text=\r\n\ IFF\ hasPatients()\:\ removes\ from\ a\ SurgeryServer\ the\ Patient\ that\r\n\ will\ be\ operated\ on,\ and\ returns\ that\ Patient,\ updating\ its\r\n\ entersSurgery\ attribute.\r\n\ @param\ h\ Timestamp\ (in\ hours)\ when\ the\ patient\ is\ admitted\ to\ surgery.\r\n
+numComments=5

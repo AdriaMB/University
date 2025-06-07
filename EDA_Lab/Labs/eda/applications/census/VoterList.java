@@ -81,5 +81,51 @@ public class VoterList {
         }
         return -1;
     }
+    
+    public int getNumOfRepeatedResidents(VoterList other){
+        int counter = 0;
+        other.census.begin();
+        if(!this.census.isEmpty()){
+            for(this.census.begin(); !this.census.isEnd(); this.census.next()){
+                Resident aux = census.get();
+                int index = other.index(aux);
+                if(index != -1) counter++;
+            }  
+        }
 
+        return counter;
+    }
+    
+    public static void testNumRepeated()
+    {
+        VoterList l1 = new VoterList(true, 4);
+        VoterList l2 = new VoterList(true, 0);
+        VoterList l3 = new VoterList(true, 0);
+        VoterList l4 = new VoterList(true, 0);
+        VoterList l5 = new VoterList(true, 0);
+        
+        l1.getCensus().begin();
+        l2.getCensus().add(l1.getCensus().get());
+        l1.getCensus().next();
+        l3.getCensus().add(l1.getCensus().get());
+        l1.getCensus().next();
+        l4.getCensus().add(l1.getCensus().get());
+        l1.getCensus().next();
+        l5.getCensus().add(l1.getCensus().get());
+        
+        boolean ok = 
+            l1.getNumOfRepeatedResidents(l2) == 1 &&
+            l1.getNumOfRepeatedResidents(l3) == 1 &&
+            l1.getNumOfRepeatedResidents(l4) == 1 &&
+            l1.getNumOfRepeatedResidents(l5) == 1;
+            
+        if (ok)
+        {
+            System.out.println("TEST PASSED: 'getNumRepeated' works correctly");
+        }
+        else
+        {
+            System.out.println("ERROR: 'getNumRepeated' does NOT work correctly");
+        }        
+    }
 }

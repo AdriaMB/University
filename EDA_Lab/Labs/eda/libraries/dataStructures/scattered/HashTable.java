@@ -323,4 +323,29 @@ public class HashTable<K, V> implements Map<K, V> {
         }
         return res.toString();
     }
+    
+    public ListPOI<V> valueList(int n){
+        Map<V, Integer> repetitions = new HashTable<V, Integer>(this.size());
+        ListPOI<V> res = new LinkedListPOI<>();
+        ListPOI<K> keys = this.keys();
+        for(int i = 0; i < theArray.length; i++){
+            ListPOI<HashEntry<K,V>> bucket = theArray[i];
+            while(!bucket.isEnd()){
+                V value = bucket.get().value;
+                Integer r = repetitions.get(value);
+                if(r == null) repetitions.put(value, 1);
+                else if(r == n){
+                    r++;
+                    res.add(value);
+                    repetitions.put(value, r);
+                }
+                else{
+                    r++;
+                    repetitions.put(value, r);
+                }
+            }
+            
+        }
+        return res;
+    }
 }
