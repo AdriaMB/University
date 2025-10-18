@@ -1,0 +1,6 @@
+Abierta una imagen de n:512, m:512
+The total number of current active threads BEFORE: 1
+n = 512
+The number of threads is 32
+Enlapsed time in filter method= 0.228212
+Enlapsed time: 0.506710
