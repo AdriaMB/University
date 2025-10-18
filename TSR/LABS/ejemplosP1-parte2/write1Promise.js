@@ -1,0 +1,2 @@
+cont fs = require('fs')
+

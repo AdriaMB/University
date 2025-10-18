@@ -1,0 +1,6 @@
+Priority order: Javascript tasks > Microtasks > Macrotasks
+
+Event loop:
+1- Check if there are tasks in Task Queue
+    YES: add them to the CallTask
+    NO: waits
