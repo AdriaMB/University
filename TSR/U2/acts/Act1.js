@@ -17,3 +17,15 @@ allTables(table(2), table(20), table(10)) // JAVASCRIPT USES STRIC EVALUATION, W
 let a
 console.log(typeof(a))
 console.log(a * 43)
+
+
+function scopeFunc(){
+	console.log("Hi from scopeFunc")
+	function subFunc(){
+		console.log("Hi from subFunc")
+
+	}
+}
+
+scopeFunc()
+subFunc()
