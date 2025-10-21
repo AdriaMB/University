@@ -1,6 +1,12 @@
 const net = require('net');
 const fs  = require('fs');
 
+
+if(process.argv.length < 3){
+	console.error("There are not enough arguments: we need the remotePort");
+	process.exit(-1);
+}
+
 // server is an EventEmitter with the following events:
 // close()
 // connection()
@@ -9,6 +15,7 @@ const fs  = require('fs');
 // address(): returns the address, family name and port of the servers
 const server = net.createServer( function(c) { //connection listener
 	console.log('server: client connected');
+
  	c.on('end', function() {
 		console.log('server: client disconnected');
  	});
@@ -20,8 +27,8 @@ const server = net.createServer( function(c) { //connection listener
  		c.write(info)
  	});
 });
-
-server.listen(8000, function() { //listening listener
+//			process.argv[2] == port listening to
+server.listen(process.argv[2], function() { //listening listener
 	console.log('server bound');
 });
 

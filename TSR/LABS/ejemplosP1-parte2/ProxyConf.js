@@ -1,13 +1,16 @@
 const net = require('net');
 const LOCAL_PORT = 8000;
 const LOCAL_IP = '127.0.0.1';
-//
-//const REMOTE_IP="cdt.gva.es";
-//const REMOTE_IP="apache.rediris.es"
-const REMOTE_IP="sepie.es"
 
-const REMOTE_PORT=80
-//const REMOTE_IP = '158.42.4.23'; // www.upv.es
+if(process.argv.length < 4){
+	console.error("There are not enough arguments: we need the remoteIP and remotePort");
+	process.exit(-1);
+}
+//console.log(process.argv)
+const arg = process.argv.slice(2);
+const REMOTE_IP = arg[0];// console.log(REMOTE_IP);
+const REMOTE_PORT=arg[1];// console.log(REMOTE_PORT);
+
 const server = net.createServer(function (socket) {
 
 	const serviceSocket = new net.Socket(); // creates the serviceSocket
@@ -15,7 +18,6 @@ const server = net.createServer(function (socket) {
 	serviceSocket.connect(parseInt(REMOTE_PORT), REMOTE_IP, function () {
 
 		socket.on('data', function (msg) { // listener to the event of receiving data
-		console.log("Hi. I detected this from my socket")
 		console.log (msg + "")
 		serviceSocket.write(msg);
 	});

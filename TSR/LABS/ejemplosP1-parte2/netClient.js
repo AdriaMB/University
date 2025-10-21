@@ -1,5 +1,5 @@
 const net = require('net');
-const client = net.connect({port:8000}, function() { //connect listener
+const client = net.connect({port:8100}, function() { //connect listener
 	console.log('client connected');
 	client.write('world!\r\n');
 });
