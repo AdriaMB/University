@@ -1,3 +1,5 @@
+/**
+
 let x = 6
 console.log(x)
 x = "Helloo"
@@ -136,3 +138,51 @@ changeColour(myCar, "blue")
 console.log(myCar)
 byFerrari(myCar)
 console.log(myCar)
+
+*/
+
+/**
+
+for(let i=0; i<10; i++){
+    var j = i;
+    setTimeout(() => {console.log("j = " +  j)}, 1000)
+
+}
+
+
+let fg
+{
+    let x = 1
+    fg = (y)=>{console.log("hello " + y + "  " + x++)}
+
+}
+for(let i = 0; i<10;i++) fg("bb")
+
+
+*/
+
+
+const ev=require("events")
+const emitter = new ev.EventEmitter()
+const e1 = 'e1', e2 = 'e2', e3 ='e3'
+let inc = 1
+
+function handler(e, n){
+    return(inc) =>{
+        n+=inc
+        console.log(e + "-->" + n)
+    }
+}
+
+emitter.on(e1, handler(e1, 1))
+emitter.on(e2, handler(e2, '2'))
+
+function phase(){
+    emitter.emit(e1, inc)
+    emitter.emit(e2,1)
+    inc++
+
+}
+
+
+setInterval(phase, 1000)

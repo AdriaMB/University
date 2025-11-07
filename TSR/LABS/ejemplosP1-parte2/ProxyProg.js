@@ -18,15 +18,14 @@ function createSocket(ip, port){
 		// disconnect the socket that points to the previous server
 		server.close(()=>{
 			console.log("Restarting proxy server")
-
 		})
-
 	}
-
-	server = net.createServer(function (socket) {
-
+	server = net.createServer(function (socket)
+	{
 		const serviceSocket = new net.Socket(); // creates the serviceSocket
 		serviceSocket.connect(parseInt(ip), port, function () {
+			serviceSocket.write(JSON.parse({"address":8000}))
+
 			socket.on('data', function (msg) { // listener to the event of receiving data
 				console.log (msg + "")
 				var input = JSON.parse(msg);
@@ -40,8 +39,6 @@ function createSocket(ip, port){
 		});
 	}).listen(LOCAL_PORT, LOCAL_IP);
 	console.log("TCP server accepting connection on port: " + LOCAL_PORT);
-
-
 }
 
 
@@ -58,3 +55,31 @@ const programmerServer = net.createServer(function(socket){
 }).listen(8001, LOCAL_IP)
 
 createSocket(REMOTE_IP, REMOTE_PORT);
+
+
+
+		/**
+		 const controlServer = net.createServer(function(socket){
+			const serviceSocket = new net.Socket();
+			serviceSocket.connect(parseInt(REMOTE_PORT), REMOTE_IP. function(){
+				socket.on('data', function(msg){
+					let payload = JSON.parse(msg)
+					REMOTE_IP = payload.remote_ip;
+					REMOTE_PORT = payload.remote_port;
+					socket.write(" Ok, updated to ${REMOTE_IP}: ${REMOTE_PORT}\n");
+					console.log("Nuevo destino => " + REMOTE_IP + ":" + REMOTE_PORT);
+
+				});
+				serviceSocket.on('data', function(data){
+					socket.write(data);
+				)};
+
+
+			});
+		});
+	}).listen(CONTROL_PORT, LOCAL_IP)
+	console.log("TCP server accepting connection on port: " + LOCAL_PORT);
+
+
+
+		 */

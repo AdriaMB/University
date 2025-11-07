@@ -29,7 +29,7 @@ const server = net.createServer( function(c) { //connection listener
 });
 //			process.argv[2] == port listening to
 server.listen(process.argv[2], function() { //listening listener
-	console.log('server bound');
+	console.log('server bound to port: ' + process.argv[2]);
 });
 
 

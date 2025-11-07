@@ -22,7 +22,7 @@ client.on('data', function(data) {
 	console.log(object.load)
 	console.log(object.address)
 
- 	client.end(); //no more data written to the stream
+// 	client.end(); //no more data written to the stream
 });
 
 client.on('end', function() {

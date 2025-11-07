@@ -21,6 +21,6 @@ console.log ("result3: " + result3)
 let vector = [1,2,3,4]
 
 console.log ("resultv1: " + f1 (...vector)) // Lee el vector y asigna a, b y c de manera correspondinete
-console.log ("resultv2: " + f1 (vector))
+console.log ("resultv2: " + f1 (vector)) // resultv2 = 1,2,3,4undefinedundefined
 console.log(vector.length)
 console.log(typeof(f1(vector)))

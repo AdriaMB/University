@@ -1,6 +1,8 @@
 const net = require('net');
 
-const server = net.createServer( function(c) { //connection listener
+let i = 0;
+
+const server = net.createServer( function(c) { //the connection listener is the hole function / c is a Socket in communication with the client
 	console.log('server: client connected');
  	c.on('end', function() {
 		console.log('server: client disconnected');
@@ -8,10 +10,12 @@ const server = net.createServer( function(c) { //connection listener
  
  	c.on('data', function(data) {
 		c.write('Hello\r\n'+ data.toString()); // send resp
- 		c.end(); // close socket
+
+		//setInterval(()=>{ i++; c.write("Hello " + i)}, i*1000)
+ 		//c.end(); // close socket
  	});
 });
 
-server.listen(8000, function() { //listening listener
+server.listen(8002, function() { //listening listener
 	console.log('server bound');
 });

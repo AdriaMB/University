@@ -1,12 +1,13 @@
 'use strict'
 
 class Animal {
-//	nombre;
+
 	constructor (nombre) {
-		
+		//this.nombre = nombre;
 	}
 	habla() {}
 	nombreAnimal() {return this.nombre}
+
 }
 
 class Perro extends Animal {

@@ -1,5 +1,5 @@
 const net = require('net');
-const client = net.connect({port:8100}, function() { //connect listener
+const client = net.connect({port:8001}, function() { //connect listener / socket TCP
 	console.log('client connected');
 	client.write('world!\r\n');
 });
@@ -7,7 +7,7 @@ const client = net.connect({port:8100}, function() { //connect listener
 //Defines the listeners to events from server:
 client.on('data', function(data) {
  	console.log(data.toString());
- 	client.end(); //no more data written to the stream
+ 	//client.end(); //no more data written to the stream
 });
 
 client.on('end', function() {

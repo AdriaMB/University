@@ -1,24 +1,24 @@
 const net = require('net');
-const LOCAL_PORT = 8000;
+const LOCAL_PORT = 8001;
 const LOCAL_IP = '127.0.0.1';
 //
 //const REMOTE_IP="cdt.gva.es";
 //const REMOTE_IP="apache.rediris.es"
-const REMOTE_IP="sepie.es"
+const REMOTE_IP="localhost"
 
-const REMOTE_PORT=80
+const REMOTE_PORT=8002
 //const REMOTE_IP = '158.42.4.23'; // www.upv.es
 const server = net.createServer(function (socket) {
 
-	const serviceSocket = new net.Socket(); // creates the serviceSocket
+	const serviceSocket = new net.Socket(); // creates the serviceSocket, which is a client socket
 
 	serviceSocket.connect(parseInt(REMOTE_PORT), REMOTE_IP, function () {
 
-		socket.on('data', function (msg) { // listener to the event of receiving data
-		console.log("Hi. I detected this from my socket")
-		console.log (msg + "")
-		serviceSocket.write(msg);
-	});
+		socket.on('data', function (msg) { // listener to the event of receiving data from client
+			console.log("Hi. I detected this from my socket")
+			console.log (msg + "")
+			serviceSocket.write(msg); // write what you obtained from the client to the server
+		});
 		serviceSocket.on('data', function (data) { // another listener for the event of receiving data, this time from the second socket
 			socket.write(data);
 		});

@@ -25,6 +25,7 @@ function f2 () {
 	console.log ("variable_var: " + variable_var) 
 	// Sí está de
 	// definida, incluso cuando esta ha sido definida dentro del loop
+	console.log("let_i= " + let_i)
 	
 
 	for (var var_i=0; var_i<5; var_i++) {
@@ -52,8 +53,11 @@ function f2 () {
     var tiempos = 4;
     if (tiempos > 3) {
         var saludar = "dice Hola tambien"; 
+		var enIfVar = "Hola desde if"
     }
     console.log(saludar) // "dice Hola tambien"
+	console.log(enIfVar)
+
 
 
 	//Let puede modificarse, pero no cvolver a declararse. 
