@@ -1,0 +1,194 @@
+Ciclo: 8, Señal: IDstall, IFstall; Rdst ld a0,0(t0)(en EX) == Rfte add a0,t4,a0(en ID)
+Ciclo: 8, Señal: IDstall, IFstall; Rdst ld t4,384(gp) [a](en MEM) == Rfte add a0,t4,a0(en ID)
+Ciclo: 9, Señal: IDstall, IFstall; Rdst ld a0,0(t0)(en MEM) == Rfte add a0,t4,a0(en ID)
+Ciclo: 12, Señal: IDstall, IFstall; Rdst ld a1,0(t1)(en EX) == Rfte add a1,a0,a1(en ID)
+Ciclo: 12, Señal: IDstall, IFstall; Rdst add a0,t4,a0(en MEM) == Rfte add a1,a0,a1(en ID)
+Ciclo: 13, Señal: IDstall, IFstall; Rdst ld a1,0(t1)(en MEM) == Rfte add a1,a0,a1(en ID)
+Ciclo: 15, Señal: IDstall, IFstall; Rdst add a1,a0,a1(en EX) == Rfte sd a1,0(t2)(en ID)
+Ciclo: 16, Señal: IDstall, IFstall; Rdst add a1,a0,a1(en MEM) == Rfte sd a1,0(t2)(en ID)
+Ciclo: 22, Señal: IDstall, IFstall; Rdst slt t5,t0,t3(en EX) == Rfte bne t5,zero,-36 [loop](en ID)
+Ciclo: 23, Señal: IDstall, IFstall; Rdst slt t5,t0,t3(en MEM) == Rfte bne t5,zero,-36 [loop](en ID)
+Ciclo: 26, Señal: IFstall; Instrucción ecall
+Ciclo: 26, Señal: IFnop, IDnop, EXnop; Instrucción bne t5,zero,-36 [loop]
+Ciclo: 26, Señal: Salto Efectivo; Instrucción bne t5,zero,-36 [loop]
+Ciclo: 29, Señal: IDstall, IFstall; Rdst ld a0,0(t0)(en EX) == Rfte add a0,t4,a0(en ID)
+Ciclo: 30, Señal: IDstall, IFstall; Rdst ld a0,0(t0)(en MEM) == Rfte add a0,t4,a0(en ID)
+Ciclo: 33, Señal: IDstall, IFstall; Rdst ld a1,0(t1)(en EX) == Rfte add a1,a0,a1(en ID)
+Ciclo: 33, Señal: IDstall, IFstall; Rdst add a0,t4,a0(en MEM) == Rfte add a1,a0,a1(en ID)
+Ciclo: 34, Señal: IDstall, IFstall; Rdst ld a1,0(t1)(en MEM) == Rfte add a1,a0,a1(en ID)
+Ciclo: 36, Señal: IDstall, IFstall; Rdst add a1,a0,a1(en EX) == Rfte sd a1,0(t2)(en ID)
+Ciclo: 37, Señal: IDstall, IFstall; Rdst add a1,a0,a1(en MEM) == Rfte sd a1,0(t2)(en ID)
+Ciclo: 43, Señal: IDstall, IFstall; Rdst slt t5,t0,t3(en EX) == Rfte bne t5,zero,-36 [loop](en ID)
+Ciclo: 44, Señal: IDstall, IFstall; Rdst slt t5,t0,t3(en MEM) == Rfte bne t5,zero,-36 [loop](en ID)
+Ciclo: 47, Señal: IFstall; Instrucción ecall
+Ciclo: 47, Señal: IFnop, IDnop, EXnop; Instrucción bne t5,zero,-36 [loop]
+Ciclo: 47, Señal: Salto Efectivo; Instrucción bne t5,zero,-36 [loop]
+Ciclo: 50, Señal: IDstall, IFstall; Rdst ld a0,0(t0)(en EX) == Rfte add a0,t4,a0(en ID)
+Ciclo: 51, Señal: IDstall, IFstall; Rdst ld a0,0(t0)(en MEM) == Rfte add a0,t4,a0(en ID)
+Ciclo: 54, Señal: IDstall, IFstall; Rdst ld a1,0(t1)(en EX) == Rfte add a1,a0,a1(en ID)
+Ciclo: 54, Señal: IDstall, IFstall; Rdst add a0,t4,a0(en MEM) == Rfte add a1,a0,a1(en ID)
+Ciclo: 55, Señal: IDstall, IFstall; Rdst ld a1,0(t1)(en MEM) == Rfte add a1,a0,a1(en ID)
+Ciclo: 57, Señal: IDstall, IFstall; Rdst add a1,a0,a1(en EX) == Rfte sd a1,0(t2)(en ID)
+Ciclo: 58, Señal: IDstall, IFstall; Rdst add a1,a0,a1(en MEM) == Rfte sd a1,0(t2)(en ID)
+Ciclo: 64, Señal: IDstall, IFstall; Rdst slt t5,t0,t3(en EX) == Rfte bne t5,zero,-36 [loop](en ID)
+Ciclo: 65, Señal: IDstall, IFstall; Rdst slt t5,t0,t3(en MEM) == Rfte bne t5,zero,-36 [loop](en ID)
+Ciclo: 68, Señal: IFstall; Instrucción ecall
+Ciclo: 68, Señal: IFnop, IDnop, EXnop; Instrucción bne t5,zero,-36 [loop]
+Ciclo: 68, Señal: Salto Efectivo; Instrucción bne t5,zero,-36 [loop]
+Ciclo: 71, Señal: IDstall, IFstall; Rdst ld a0,0(t0)(en EX) == Rfte add a0,t4,a0(en ID)
+Ciclo: 72, Señal: IDstall, IFstall; Rdst ld a0,0(t0)(en MEM) == Rfte add a0,t4,a0(en ID)
+Ciclo: 75, Señal: IDstall, IFstall; Rdst ld a1,0(t1)(en EX) == Rfte add a1,a0,a1(en ID)
+Ciclo: 75, Señal: IDstall, IFstall; Rdst add a0,t4,a0(en MEM) == Rfte add a1,a0,a1(en ID)
+Ciclo: 76, Señal: IDstall, IFstall; Rdst ld a1,0(t1)(en MEM) == Rfte add a1,a0,a1(en ID)
+Ciclo: 78, Señal: IDstall, IFstall; Rdst add a1,a0,a1(en EX) == Rfte sd a1,0(t2)(en ID)
+Ciclo: 79, Señal: IDstall, IFstall; Rdst add a1,a0,a1(en MEM) == Rfte sd a1,0(t2)(en ID)
+Ciclo: 85, Señal: IDstall, IFstall; Rdst slt t5,t0,t3(en EX) == Rfte bne t5,zero,-36 [loop](en ID)
+Ciclo: 86, Señal: IDstall, IFstall; Rdst slt t5,t0,t3(en MEM) == Rfte bne t5,zero,-36 [loop](en ID)
+Ciclo: 89, Señal: IFstall; Instrucción ecall
+Ciclo: 89, Señal: IFnop, IDnop, EXnop; Instrucción bne t5,zero,-36 [loop]
+Ciclo: 89, Señal: Salto Efectivo; Instrucción bne t5,zero,-36 [loop]
+Ciclo: 92, Señal: IDstall, IFstall; Rdst ld a0,0(t0)(en EX) == Rfte add a0,t4,a0(en ID)
+Ciclo: 93, Señal: IDstall, IFstall; Rdst ld a0,0(t0)(en MEM) == Rfte add a0,t4,a0(en ID)
+Ciclo: 96, Señal: IDstall, IFstall; Rdst ld a1,0(t1)(en EX) == Rfte add a1,a0,a1(en ID)
+Ciclo: 96, Señal: IDstall, IFstall; Rdst add a0,t4,a0(en MEM) == Rfte add a1,a0,a1(en ID)
+Ciclo: 97, Señal: IDstall, IFstall; Rdst ld a1,0(t1)(en MEM) == Rfte add a1,a0,a1(en ID)
+Ciclo: 99, Señal: IDstall, IFstall; Rdst add a1,a0,a1(en EX) == Rfte sd a1,0(t2)(en ID)
+Ciclo: 100, Señal: IDstall, IFstall; Rdst add a1,a0,a1(en MEM) == Rfte sd a1,0(t2)(en ID)
+Ciclo: 106, Señal: IDstall, IFstall; Rdst slt t5,t0,t3(en EX) == Rfte bne t5,zero,-36 [loop](en ID)
+Ciclo: 107, Señal: IDstall, IFstall; Rdst slt t5,t0,t3(en MEM) == Rfte bne t5,zero,-36 [loop](en ID)
+Ciclo: 110, Señal: IFstall; Instrucción ecall
+Ciclo: 110, Señal: IFnop, IDnop, EXnop; Instrucción bne t5,zero,-36 [loop]
+Ciclo: 110, Señal: Salto Efectivo; Instrucción bne t5,zero,-36 [loop]
+Ciclo: 113, Señal: IDstall, IFstall; Rdst ld a0,0(t0)(en EX) == Rfte add a0,t4,a0(en ID)
+Ciclo: 114, Señal: IDstall, IFstall; Rdst ld a0,0(t0)(en MEM) == Rfte add a0,t4,a0(en ID)
+Ciclo: 117, Señal: IDstall, IFstall; Rdst ld a1,0(t1)(en EX) == Rfte add a1,a0,a1(en ID)
+Ciclo: 117, Señal: IDstall, IFstall; Rdst add a0,t4,a0(en MEM) == Rfte add a1,a0,a1(en ID)
+Ciclo: 118, Señal: IDstall, IFstall; Rdst ld a1,0(t1)(en MEM) == Rfte add a1,a0,a1(en ID)
+Ciclo: 120, Señal: IDstall, IFstall; Rdst add a1,a0,a1(en EX) == Rfte sd a1,0(t2)(en ID)
+Ciclo: 121, Señal: IDstall, IFstall; Rdst add a1,a0,a1(en MEM) == Rfte sd a1,0(t2)(en ID)
+Ciclo: 127, Señal: IDstall, IFstall; Rdst slt t5,t0,t3(en EX) == Rfte bne t5,zero,-36 [loop](en ID)
+Ciclo: 128, Señal: IDstall, IFstall; Rdst slt t5,t0,t3(en MEM) == Rfte bne t5,zero,-36 [loop](en ID)
+Ciclo: 131, Señal: IFstall; Instrucción ecall
+Ciclo: 131, Señal: IFnop, IDnop, EXnop; Instrucción bne t5,zero,-36 [loop]
+Ciclo: 131, Señal: Salto Efectivo; Instrucción bne t5,zero,-36 [loop]
+Ciclo: 134, Señal: IDstall, IFstall; Rdst ld a0,0(t0)(en EX) == Rfte add a0,t4,a0(en ID)
+Ciclo: 135, Señal: IDstall, IFstall; Rdst ld a0,0(t0)(en MEM) == Rfte add a0,t4,a0(en ID)
+Ciclo: 138, Señal: IDstall, IFstall; Rdst ld a1,0(t1)(en EX) == Rfte add a1,a0,a1(en ID)
+Ciclo: 138, Señal: IDstall, IFstall; Rdst add a0,t4,a0(en MEM) == Rfte add a1,a0,a1(en ID)
+Ciclo: 139, Señal: IDstall, IFstall; Rdst ld a1,0(t1)(en MEM) == Rfte add a1,a0,a1(en ID)
+Ciclo: 141, Señal: IDstall, IFstall; Rdst add a1,a0,a1(en EX) == Rfte sd a1,0(t2)(en ID)
+Ciclo: 142, Señal: IDstall, IFstall; Rdst add a1,a0,a1(en MEM) == Rfte sd a1,0(t2)(en ID)
+Ciclo: 148, Señal: IDstall, IFstall; Rdst slt t5,t0,t3(en EX) == Rfte bne t5,zero,-36 [loop](en ID)
+Ciclo: 149, Señal: IDstall, IFstall; Rdst slt t5,t0,t3(en MEM) == Rfte bne t5,zero,-36 [loop](en ID)
+Ciclo: 152, Señal: IFstall; Instrucción ecall
+Ciclo: 152, Señal: IFnop, IDnop, EXnop; Instrucción bne t5,zero,-36 [loop]
+Ciclo: 152, Señal: Salto Efectivo; Instrucción bne t5,zero,-36 [loop]
+Ciclo: 155, Señal: IDstall, IFstall; Rdst ld a0,0(t0)(en EX) == Rfte add a0,t4,a0(en ID)
+Ciclo: 156, Señal: IDstall, IFstall; Rdst ld a0,0(t0)(en MEM) == Rfte add a0,t4,a0(en ID)
+Ciclo: 159, Señal: IDstall, IFstall; Rdst ld a1,0(t1)(en EX) == Rfte add a1,a0,a1(en ID)
+Ciclo: 159, Señal: IDstall, IFstall; Rdst add a0,t4,a0(en MEM) == Rfte add a1,a0,a1(en ID)
+Ciclo: 160, Señal: IDstall, IFstall; Rdst ld a1,0(t1)(en MEM) == Rfte add a1,a0,a1(en ID)
+Ciclo: 162, Señal: IDstall, IFstall; Rdst add a1,a0,a1(en EX) == Rfte sd a1,0(t2)(en ID)
+Ciclo: 163, Señal: IDstall, IFstall; Rdst add a1,a0,a1(en MEM) == Rfte sd a1,0(t2)(en ID)
+Ciclo: 169, Señal: IDstall, IFstall; Rdst slt t5,t0,t3(en EX) == Rfte bne t5,zero,-36 [loop](en ID)
+Ciclo: 170, Señal: IDstall, IFstall; Rdst slt t5,t0,t3(en MEM) == Rfte bne t5,zero,-36 [loop](en ID)
+Ciclo: 173, Señal: IFstall; Instrucción ecall
+Ciclo: 173, Señal: IFnop, IDnop, EXnop; Instrucción bne t5,zero,-36 [loop]
+Ciclo: 173, Señal: Salto Efectivo; Instrucción bne t5,zero,-36 [loop]
+Ciclo: 176, Señal: IDstall, IFstall; Rdst ld a0,0(t0)(en EX) == Rfte add a0,t4,a0(en ID)
+Ciclo: 177, Señal: IDstall, IFstall; Rdst ld a0,0(t0)(en MEM) == Rfte add a0,t4,a0(en ID)
+Ciclo: 180, Señal: IDstall, IFstall; Rdst ld a1,0(t1)(en EX) == Rfte add a1,a0,a1(en ID)
+Ciclo: 180, Señal: IDstall, IFstall; Rdst add a0,t4,a0(en MEM) == Rfte add a1,a0,a1(en ID)
+Ciclo: 181, Señal: IDstall, IFstall; Rdst ld a1,0(t1)(en MEM) == Rfte add a1,a0,a1(en ID)
+Ciclo: 183, Señal: IDstall, IFstall; Rdst add a1,a0,a1(en EX) == Rfte sd a1,0(t2)(en ID)
+Ciclo: 184, Señal: IDstall, IFstall; Rdst add a1,a0,a1(en MEM) == Rfte sd a1,0(t2)(en ID)
+Ciclo: 190, Señal: IDstall, IFstall; Rdst slt t5,t0,t3(en EX) == Rfte bne t5,zero,-36 [loop](en ID)
+Ciclo: 191, Señal: IDstall, IFstall; Rdst slt t5,t0,t3(en MEM) == Rfte bne t5,zero,-36 [loop](en ID)
+Ciclo: 194, Señal: IFstall; Instrucción ecall
+Ciclo: 194, Señal: IFnop, IDnop, EXnop; Instrucción bne t5,zero,-36 [loop]
+Ciclo: 194, Señal: Salto Efectivo; Instrucción bne t5,zero,-36 [loop]
+Ciclo: 197, Señal: IDstall, IFstall; Rdst ld a0,0(t0)(en EX) == Rfte add a0,t4,a0(en ID)
+Ciclo: 198, Señal: IDstall, IFstall; Rdst ld a0,0(t0)(en MEM) == Rfte add a0,t4,a0(en ID)
+Ciclo: 201, Señal: IDstall, IFstall; Rdst ld a1,0(t1)(en EX) == Rfte add a1,a0,a1(en ID)
+Ciclo: 201, Señal: IDstall, IFstall; Rdst add a0,t4,a0(en MEM) == Rfte add a1,a0,a1(en ID)
+Ciclo: 202, Señal: IDstall, IFstall; Rdst ld a1,0(t1)(en MEM) == Rfte add a1,a0,a1(en ID)
+Ciclo: 204, Señal: IDstall, IFstall; Rdst add a1,a0,a1(en EX) == Rfte sd a1,0(t2)(en ID)
+Ciclo: 205, Señal: IDstall, IFstall; Rdst add a1,a0,a1(en MEM) == Rfte sd a1,0(t2)(en ID)
+Ciclo: 211, Señal: IDstall, IFstall; Rdst slt t5,t0,t3(en EX) == Rfte bne t5,zero,-36 [loop](en ID)
+Ciclo: 212, Señal: IDstall, IFstall; Rdst slt t5,t0,t3(en MEM) == Rfte bne t5,zero,-36 [loop](en ID)
+Ciclo: 215, Señal: IFstall; Instrucción ecall
+Ciclo: 215, Señal: IFnop, IDnop, EXnop; Instrucción bne t5,zero,-36 [loop]
+Ciclo: 215, Señal: Salto Efectivo; Instrucción bne t5,zero,-36 [loop]
+Ciclo: 218, Señal: IDstall, IFstall; Rdst ld a0,0(t0)(en EX) == Rfte add a0,t4,a0(en ID)
+Ciclo: 219, Señal: IDstall, IFstall; Rdst ld a0,0(t0)(en MEM) == Rfte add a0,t4,a0(en ID)
+Ciclo: 222, Señal: IDstall, IFstall; Rdst ld a1,0(t1)(en EX) == Rfte add a1,a0,a1(en ID)
+Ciclo: 222, Señal: IDstall, IFstall; Rdst add a0,t4,a0(en MEM) == Rfte add a1,a0,a1(en ID)
+Ciclo: 223, Señal: IDstall, IFstall; Rdst ld a1,0(t1)(en MEM) == Rfte add a1,a0,a1(en ID)
+Ciclo: 225, Señal: IDstall, IFstall; Rdst add a1,a0,a1(en EX) == Rfte sd a1,0(t2)(en ID)
+Ciclo: 226, Señal: IDstall, IFstall; Rdst add a1,a0,a1(en MEM) == Rfte sd a1,0(t2)(en ID)
+Ciclo: 232, Señal: IDstall, IFstall; Rdst slt t5,t0,t3(en EX) == Rfte bne t5,zero,-36 [loop](en ID)
+Ciclo: 233, Señal: IDstall, IFstall; Rdst slt t5,t0,t3(en MEM) == Rfte bne t5,zero,-36 [loop](en ID)
+Ciclo: 236, Señal: IFstall; Instrucción ecall
+Ciclo: 236, Señal: IFnop, IDnop, EXnop; Instrucción bne t5,zero,-36 [loop]
+Ciclo: 236, Señal: Salto Efectivo; Instrucción bne t5,zero,-36 [loop]
+Ciclo: 239, Señal: IDstall, IFstall; Rdst ld a0,0(t0)(en EX) == Rfte add a0,t4,a0(en ID)
+Ciclo: 240, Señal: IDstall, IFstall; Rdst ld a0,0(t0)(en MEM) == Rfte add a0,t4,a0(en ID)
+Ciclo: 243, Señal: IDstall, IFstall; Rdst ld a1,0(t1)(en EX) == Rfte add a1,a0,a1(en ID)
+Ciclo: 243, Señal: IDstall, IFstall; Rdst add a0,t4,a0(en MEM) == Rfte add a1,a0,a1(en ID)
+Ciclo: 244, Señal: IDstall, IFstall; Rdst ld a1,0(t1)(en MEM) == Rfte add a1,a0,a1(en ID)
+Ciclo: 246, Señal: IDstall, IFstall; Rdst add a1,a0,a1(en EX) == Rfte sd a1,0(t2)(en ID)
+Ciclo: 247, Señal: IDstall, IFstall; Rdst add a1,a0,a1(en MEM) == Rfte sd a1,0(t2)(en ID)
+Ciclo: 253, Señal: IDstall, IFstall; Rdst slt t5,t0,t3(en EX) == Rfte bne t5,zero,-36 [loop](en ID)
+Ciclo: 254, Señal: IDstall, IFstall; Rdst slt t5,t0,t3(en MEM) == Rfte bne t5,zero,-36 [loop](en ID)
+Ciclo: 257, Señal: IFstall; Instrucción ecall
+Ciclo: 257, Señal: IFnop, IDnop, EXnop; Instrucción bne t5,zero,-36 [loop]
+Ciclo: 257, Señal: Salto Efectivo; Instrucción bne t5,zero,-36 [loop]
+Ciclo: 260, Señal: IDstall, IFstall; Rdst ld a0,0(t0)(en EX) == Rfte add a0,t4,a0(en ID)
+Ciclo: 261, Señal: IDstall, IFstall; Rdst ld a0,0(t0)(en MEM) == Rfte add a0,t4,a0(en ID)
+Ciclo: 264, Señal: IDstall, IFstall; Rdst ld a1,0(t1)(en EX) == Rfte add a1,a0,a1(en ID)
+Ciclo: 264, Señal: IDstall, IFstall; Rdst add a0,t4,a0(en MEM) == Rfte add a1,a0,a1(en ID)
+Ciclo: 265, Señal: IDstall, IFstall; Rdst ld a1,0(t1)(en MEM) == Rfte add a1,a0,a1(en ID)
+Ciclo: 267, Señal: IDstall, IFstall; Rdst add a1,a0,a1(en EX) == Rfte sd a1,0(t2)(en ID)
+Ciclo: 268, Señal: IDstall, IFstall; Rdst add a1,a0,a1(en MEM) == Rfte sd a1,0(t2)(en ID)
+Ciclo: 274, Señal: IDstall, IFstall; Rdst slt t5,t0,t3(en EX) == Rfte bne t5,zero,-36 [loop](en ID)
+Ciclo: 275, Señal: IDstall, IFstall; Rdst slt t5,t0,t3(en MEM) == Rfte bne t5,zero,-36 [loop](en ID)
+Ciclo: 278, Señal: IFstall; Instrucción ecall
+Ciclo: 278, Señal: IFnop, IDnop, EXnop; Instrucción bne t5,zero,-36 [loop]
+Ciclo: 278, Señal: Salto Efectivo; Instrucción bne t5,zero,-36 [loop]
+Ciclo: 281, Señal: IDstall, IFstall; Rdst ld a0,0(t0)(en EX) == Rfte add a0,t4,a0(en ID)
+Ciclo: 282, Señal: IDstall, IFstall; Rdst ld a0,0(t0)(en MEM) == Rfte add a0,t4,a0(en ID)
+Ciclo: 285, Señal: IDstall, IFstall; Rdst ld a1,0(t1)(en EX) == Rfte add a1,a0,a1(en ID)
+Ciclo: 285, Señal: IDstall, IFstall; Rdst add a0,t4,a0(en MEM) == Rfte add a1,a0,a1(en ID)
+Ciclo: 286, Señal: IDstall, IFstall; Rdst ld a1,0(t1)(en MEM) == Rfte add a1,a0,a1(en ID)
+Ciclo: 288, Señal: IDstall, IFstall; Rdst add a1,a0,a1(en EX) == Rfte sd a1,0(t2)(en ID)
+Ciclo: 289, Señal: IDstall, IFstall; Rdst add a1,a0,a1(en MEM) == Rfte sd a1,0(t2)(en ID)
+Ciclo: 295, Señal: IDstall, IFstall; Rdst slt t5,t0,t3(en EX) == Rfte bne t5,zero,-36 [loop](en ID)
+Ciclo: 296, Señal: IDstall, IFstall; Rdst slt t5,t0,t3(en MEM) == Rfte bne t5,zero,-36 [loop](en ID)
+Ciclo: 299, Señal: IFstall; Instrucción ecall
+Ciclo: 299, Señal: IFnop, IDnop, EXnop; Instrucción bne t5,zero,-36 [loop]
+Ciclo: 299, Señal: Salto Efectivo; Instrucción bne t5,zero,-36 [loop]
+Ciclo: 302, Señal: IDstall, IFstall; Rdst ld a0,0(t0)(en EX) == Rfte add a0,t4,a0(en ID)
+Ciclo: 303, Señal: IDstall, IFstall; Rdst ld a0,0(t0)(en MEM) == Rfte add a0,t4,a0(en ID)
+Ciclo: 306, Señal: IDstall, IFstall; Rdst ld a1,0(t1)(en EX) == Rfte add a1,a0,a1(en ID)
+Ciclo: 306, Señal: IDstall, IFstall; Rdst add a0,t4,a0(en MEM) == Rfte add a1,a0,a1(en ID)
+Ciclo: 307, Señal: IDstall, IFstall; Rdst ld a1,0(t1)(en MEM) == Rfte add a1,a0,a1(en ID)
+Ciclo: 309, Señal: IDstall, IFstall; Rdst add a1,a0,a1(en EX) == Rfte sd a1,0(t2)(en ID)
+Ciclo: 310, Señal: IDstall, IFstall; Rdst add a1,a0,a1(en MEM) == Rfte sd a1,0(t2)(en ID)
+Ciclo: 316, Señal: IDstall, IFstall; Rdst slt t5,t0,t3(en EX) == Rfte bne t5,zero,-36 [loop](en ID)
+Ciclo: 317, Señal: IDstall, IFstall; Rdst slt t5,t0,t3(en MEM) == Rfte bne t5,zero,-36 [loop](en ID)
+Ciclo: 320, Señal: IFstall; Instrucción ecall
+Ciclo: 320, Señal: IFnop, IDnop, EXnop; Instrucción bne t5,zero,-36 [loop]
+Ciclo: 320, Señal: Salto Efectivo; Instrucción bne t5,zero,-36 [loop]
+Ciclo: 323, Señal: IDstall, IFstall; Rdst ld a0,0(t0)(en EX) == Rfte add a0,t4,a0(en ID)
+Ciclo: 324, Señal: IDstall, IFstall; Rdst ld a0,0(t0)(en MEM) == Rfte add a0,t4,a0(en ID)
+Ciclo: 327, Señal: IDstall, IFstall; Rdst ld a1,0(t1)(en EX) == Rfte add a1,a0,a1(en ID)
+Ciclo: 327, Señal: IDstall, IFstall; Rdst add a0,t4,a0(en MEM) == Rfte add a1,a0,a1(en ID)
+Ciclo: 328, Señal: IDstall, IFstall; Rdst ld a1,0(t1)(en MEM) == Rfte add a1,a0,a1(en ID)
+Ciclo: 330, Señal: IDstall, IFstall; Rdst add a1,a0,a1(en EX) == Rfte sd a1,0(t2)(en ID)
+Ciclo: 331, Señal: IDstall, IFstall; Rdst add a1,a0,a1(en MEM) == Rfte sd a1,0(t2)(en ID)
+Ciclo: 337, Señal: IDstall, IFstall; Rdst slt t5,t0,t3(en EX) == Rfte bne t5,zero,-36 [loop](en ID)
+Ciclo: 338, Señal: IDstall, IFstall; Rdst slt t5,t0,t3(en MEM) == Rfte bne t5,zero,-36 [loop](en ID)
+Ciclo: 341, Señal: IFstall; Instrucción ecall
+Ciclo: 342, Señal: IFstall; Instrucción ecall
+Ciclo: 343, Señal: IFstall; Instrucción ecall
+Ciclo: 344, Señal: IFstall; Instrucción ecall
