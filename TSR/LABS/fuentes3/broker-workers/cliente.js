@@ -3,7 +3,7 @@ const zmq = require('zeromq/v5-compat')
 lineaOrdenes("id num_peticiones brokerHost brokerPort")
 
 let req = zmq.socket('req')
-req.identity = id
+req.identity = id // ESTABLECE LA identity PARA EL SOCKET, DE CARA AL ROUTER
 conecta(req, brokerHost, brokerPort)
 
 let count = 1; // Requests counter
