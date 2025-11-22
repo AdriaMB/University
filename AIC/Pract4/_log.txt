@@ -1,0 +1,602 @@
+Ciclo: 7, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 9, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 9, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 10, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 11, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 14, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 15, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 16, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 16, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 16, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 19, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 21, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 21, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 22, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 23, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 26, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 27, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 28, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 28, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 28, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 31, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 33, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 33, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 34, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 35, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 38, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 39, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 40, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 40, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 40, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 43, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 45, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 45, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 46, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 47, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 50, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 51, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 52, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 52, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 52, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 55, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 57, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 57, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 58, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 59, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 62, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 63, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 64, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 64, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 64, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 67, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 69, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 69, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 70, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 71, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 74, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 75, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 76, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 76, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 76, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 79, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 81, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 81, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 82, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 83, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 86, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 87, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 88, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 88, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 88, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 91, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 93, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 93, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 94, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 95, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 98, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 99, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 100, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 100, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 100, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 103, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 105, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 105, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 106, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 107, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 110, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 111, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 112, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 112, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 112, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 115, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 117, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 117, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 118, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 119, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 122, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 123, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 124, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 124, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 124, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 127, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 129, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 129, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 130, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 131, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 134, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 135, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 136, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 136, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 136, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 139, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 141, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 141, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 142, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 143, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 146, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 147, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 148, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 148, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 148, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 151, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 153, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 153, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 154, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 155, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 158, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 159, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 160, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 160, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 160, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 163, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 165, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 165, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 166, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 167, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 170, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 171, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 172, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 172, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 172, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 175, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 177, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 177, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 178, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 179, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 182, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 183, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 184, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 184, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 184, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 187, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 189, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 189, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 190, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 191, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 194, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 195, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 196, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 196, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 196, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 199, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 201, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 201, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 202, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 203, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 206, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 207, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 208, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 208, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 208, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 211, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 213, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 213, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 214, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 215, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 218, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 219, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 220, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 220, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 220, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 223, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 225, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 225, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 226, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 227, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 230, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 231, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 232, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 232, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 232, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 235, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 237, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 237, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 238, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 239, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 242, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 243, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 244, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 244, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 244, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 247, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 249, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 249, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 250, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 251, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 254, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 255, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 256, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 256, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 256, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 259, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 261, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 261, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 262, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 263, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 266, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 267, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 268, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 268, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 268, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 271, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 273, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 273, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 274, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 275, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 278, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 279, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 280, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 280, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 280, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 283, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 285, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 285, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 286, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 287, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 290, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 291, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 292, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 292, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 292, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 295, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 297, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 297, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 298, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 299, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 302, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 303, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 304, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 304, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 304, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 307, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 309, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 309, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 310, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 311, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 314, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 315, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 316, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 316, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 316, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 319, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 321, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 321, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 322, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 323, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 326, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 327, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 328, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 328, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 328, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 331, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 333, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 333, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 334, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 335, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 338, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 339, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 340, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 340, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 340, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 343, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 345, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 345, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 346, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 347, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 350, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 351, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 352, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 352, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 352, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 355, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 357, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 357, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 358, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 359, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 362, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 363, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 364, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 364, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 364, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 367, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 369, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 369, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 370, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 371, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 374, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 375, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 376, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 376, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 376, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 379, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 381, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 381, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 382, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 383, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 386, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 387, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 388, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 388, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 388, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 391, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 393, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 393, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 394, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 395, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 398, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 399, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 400, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 400, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 400, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 403, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 405, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 405, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 406, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 407, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 410, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 411, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 412, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 412, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 412, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 415, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 417, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 417, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 418, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 419, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 422, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 423, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 424, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 424, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 424, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 427, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 429, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 429, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 430, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 431, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 434, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 435, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 436, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 436, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 436, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 439, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 441, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 441, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 442, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 443, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 446, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 447, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 448, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 448, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 448, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 451, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 453, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 453, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 454, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 455, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 458, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 459, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 460, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 460, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 460, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 463, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 465, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 465, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 466, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 467, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 470, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 471, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 472, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 472, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 472, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 475, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 477, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 477, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 478, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 479, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 482, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 483, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 484, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 484, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 484, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 487, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 489, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 489, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 490, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 491, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 494, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 495, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 496, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 496, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 496, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 499, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 501, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 501, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 502, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 503, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 506, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 507, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 508, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 508, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 508, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 511, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 513, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 513, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 514, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 515, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 518, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 519, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 520, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 520, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 520, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 523, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 525, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 525, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 526, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 527, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 530, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 531, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 532, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 532, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 532, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 535, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 537, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 537, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 538, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 539, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 542, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 543, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 544, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 544, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 544, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 547, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 549, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 549, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 550, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 551, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 554, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 555, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 556, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 556, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 556, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 559, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 561, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 561, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 562, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 563, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 566, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 567, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 568, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 568, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 568, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 571, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 573, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 573, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 574, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 575, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 578, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 579, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 580, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 580, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 580, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 583, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 585, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 585, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 586, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 587, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 590, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 591, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 592, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 592, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 592, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 595, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 597, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 597, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 598, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 599, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 602, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 603, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 604, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 604, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 604, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 607, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 609, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 609, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 610, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 611, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 614, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 615, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 616, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 616, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 616, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 619, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 621, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 621, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 622, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 623, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 626, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 627, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 628, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 628, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 628, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 631, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 633, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 633, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 634, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 635, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 638, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 639, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 640, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 640, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 640, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 643, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 645, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 645, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 646, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 647, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 650, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 651, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 652, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 652, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 652, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 655, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 657, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 657, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 658, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 659, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 662, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 663, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 664, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 664, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 664, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 667, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 669, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 669, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 670, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 671, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 674, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 675, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 676, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 676, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 676, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 679, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 681, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 681, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 682, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 683, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 686, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 687, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 688, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 688, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 688, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 691, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 693, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 693, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 694, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 695, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 698, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 699, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 700, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 700, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 700, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 703, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 705, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 705, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 706, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 707, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 710, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 711, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 712, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 712, Señal: IFnop; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 712, Señal: Salto Efectivo; Instrucción bne t4,zero,-24 [loop]
+Ciclo: 715, Señal: RAW, IDstall, IFstall; Instrucción fadd.d f2,f0,f1, Reg f1
+Ciclo: 717, Señal: corto FP_WBaADD1_i; Rdst fld f1,0(t1)(en FP WB) == Rfte fadd.d f2,f0,f1(en FP_ADD)
+Ciclo: 717, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 718, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 719, Señal: RAWL, IDstall, IFstall; Instrucción fsd f2,0(t2), Reg f2
+Ciclo: 722, Señal: corto FP_WBaFP_LS2_i; Rdst fadd.d f2,f0,f1(en FP WB) == Rfte fsd f2,0(t2)(en FP LS)
+Ciclo: 723, Señal: corto MEMaEXalu_i; Rdst addi t1,t1,8(en MEM) == Rfte sub t4,t3,t1(en EX)
+Ciclo: 724, Señal: corto MEMaIDcomp_s; Rdst sub t4,t3,t1(en MEM) == Rfte bne t4,zero,-24 [loop](en ID)
+Ciclo: 726, Señal: IFstall; Instrucción ecall
+Ciclo: 727, Señal: IFstall; Instrucción ecall
+Ciclo: 728, Señal: IFstall; Instrucción ecall
+Ciclo: 729, Señal: IFstall; Instrucción ecall
