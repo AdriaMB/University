@@ -35,8 +35,8 @@ start:
     addi t3, t1, 480     # 60 elements are 480 bytes
 
 loop:
-    fld f3, 0(t0)        # x[n]
-    fmul.d f4, f3, f0    # x[n] * a
+    fld f1 0(t0)        # x[n]
+    fmul.d f4, f1, f0    # x[n] * a
     fld f1, 0(t1)        # y[n]
     fadd.d f2, f4, f1    # x[n]*a + y[n]
     fsd f2, 0(t2)        # z[n]
