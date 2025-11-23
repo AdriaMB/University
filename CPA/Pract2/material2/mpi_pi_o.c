@@ -12,7 +12,6 @@ int main(int argc,char *argv[])
   MPI_Comm_size(MPI_COMM_WORLD,&numprocs);
   MPI_Comm_rank(MPI_COMM_WORLD,&myid);
 
-
   if (argc==2) n = atoi(argv[1]);
   else n = 100;
   if (n<=0) MPI_Abort(MPI_COMM_WORLD,MPI_ERR_ARG);
@@ -26,26 +25,9 @@ int main(int argc,char *argv[])
   }
   mypi = h * sum;
   /* Reducción: el proceso 0 obtiene la suma de todos los resultados */
-//  MPI_Reduce(&mypi, &pi, 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
-  
-  double temp = 0;
-  
-  if(myid == 0){
-  	for(int i = 1; i < numprocs; i++){
-	     // MPI_Recv(buf, count, datatype, src, tag, comm, stat)
-		MPI_Recv(&temp, 1,  MPI_DOUBLE, i, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-		mypi += temp;
-	
-	}
-  }
-  else{
-  	MPI_Send(&mypi, 1, MPI_DOUBLE, 0, 0, MPI_COMM_WORLD);
-  }
-
-
+  MPI_Reduce(&mypi, &pi, 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
 
   if (myid==0) {
-    pi = mypi;
     printf("Cálculo de PI con %d procesos\n",numprocs);
     printf("Con %d intervalos, PI es aproximadamente %.16f (error = %.16f)\n",n,pi,fabs(pi-M_PI));
   }

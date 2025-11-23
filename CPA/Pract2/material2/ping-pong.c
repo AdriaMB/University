@@ -24,21 +24,40 @@ int main(int argc,char *argv[])
   if (n<0 || n>NMAX) n=NMAX;
 
   /* COMPLETE: Get current time, using MPI_Wtime() */
+  double t1 = MPI_Wtime();
 
 
   /* COMPLETE: loop of NREPS iterations.
      In each iteration, P0 sends a message of n bytes to P1, and P1 sends the same
      message back to P0. The data sent is taken from array buf and received into
      the same array. */
+  for(int i = 0; i < NREPS; i++){
+    if(myid == 0){
+      MPI_Send(&buf, n, MPI_BYTE, 1, 0, MPI_COMM_WORLD);
+      MPI_Recv(&buf, n, MPI_BYTE, 1, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
 
+    }
+    else if(myid == 1){
+      // Debe ponerse myid == 1. Si se pone unicamente un else, entonces el programa espera y no acaba
+      MPI_Recv(&buf, n, MPI_BYTE, 0, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+      MPI_Send(&buf, n, MPI_BYTE, 0, 0, MPI_COMM_WORLD);
+
+
+    }
+
+  }
 
   /* COMPLETE: Get current time, using MPI_Wtime() */
-
+  double t2 = MPI_Wtime();
 
   /* COMPLETE: Only in process 0.
      Compute the time of transmission of a single message (in milliseconds) and print it.
      Take into account there have been NREPS repetitions, and each repetition involves 2
      messages. */
+  if(myid == 0){
+    double final_t = (t2-t1)/NREP*2;
+    printf("The total execution time is %f\n", final_t);
+  }
 
   MPI_Finalize();
   return 0;
