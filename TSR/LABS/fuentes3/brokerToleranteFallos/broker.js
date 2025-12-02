@@ -1,4 +1,5 @@
-const {zmq, lineaOrdenes, traza, error, adios, creaPuntoConexion} = require('../tsr')
+const {lineaOrdenes, traza, error, adios, creaPuntoConexion} = require('../tsr')
+const zmq = require('zeromq/v5-compat')
 const ans_interval = 2000 // deadline to detect worker failure
 lineaOrdenes("frontendPort backendPort")
 
@@ -11,8 +12,8 @@ let backend  = zmq.socket('router')
 
 function dispatch(client, message) {
 	traza('dispatch','client message',[client,message])
-	if (ready.length) new_task(ready.shift(), client, message)
-	else 			  pending.push([client,message])
+	if (ready.length) new_task(ready.shift(), client, message) // if there is a worker ready to work, then we pass the request
+	else 			  pending.push([client,message]) // store the message
 }
 function new_task(worker, client, message) {
 	traza('new_task','client message',[client,message])

@@ -1,4 +1,5 @@
-const {zmq, lineaOrdenes, traza, error, adios, conecta} = require('../tsr')
+const {lineaOrdenes, traza, error, adios, conecta} = require('../tsr')
+const zmq = require('zeromq/v5-compat')
 lineaOrdenes("id num_peticiones brokerHost brokerPort")
 
 let req = zmq.socket('req')

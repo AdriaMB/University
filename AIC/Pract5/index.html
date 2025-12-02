@@ -1,0 +1,213 @@
+<html><head><title>riscV-especulacion:  basico.s. Ciclo 0</title>
+<link rel='stylesheet' href='aic-style.css' />
+</head>
+<body bgcolor="white">
+<a href="index.html">INICIO</a>&nbsp;
+<a href="final.html">FINAL</a>&nbsp;
+<a href="estado001.html">Estado</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="crono001.html">Cronograma</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="predictor001.html">BTB</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<tt><b>Programa:  basico.s</b></tt>
+<br>
+<br>
+<table>
+ <tr valign="top"><td>
+<table class='config'>
+ <tr>
+  <th>Estructura</th>
+  <th class='value'>Número</th>
+ </tr>
+ <tr>
+  <td class='header'>Num v&iacuteas Issue</td>
+  <td class='value'>1</td>
+ </tr>
+ <tr>
+  <td class='header'>Num v&iacuteas Writeback</td>
+  <td class='value'>1</td>
+ </tr>
+ <tr>
+  <td class='header'>Num v&iacuteas Commit</td>
+  <td class='value'>1</td>
+ </tr>
+ <tr>
+  <td class='header'>Registros</td>
+  <td class='value'>32</td>
+ </tr>
+ <tr>
+  <td class='header'>Reorder&nbsp;Buffer</td>
+  <td class='value'>20</td>
+ </tr>
+ <tr>
+  <td class='header'>E.R.&nbsp;Suma/Resta</td>
+  <td class='value'>3</td>
+ </tr>
+ <tr>
+  <td class='header'>E.R.&nbsp;Multiplicación/División</td>
+  <td class='value'>2</td>
+ </tr>
+ <tr>
+  <td class='header'>E.R.&nbsp;Enteros</td>
+  <td class='value'>5</td>
+ </tr>
+ <tr>
+  <td class='header'>Buffers de carga</td>
+  <td class='value'>3</td>
+ </tr>
+ <tr>
+  <td class='header'>Buffers de almacen.</td>
+  <td class='value'>3</td>
+ </tr>
+ <tr>
+  <td class='header'>Tipo&nbsp;de&nbsp;predictor</td>
+  <td class='value'>BTB 1 bit</td>
+ </tr>
+ <tr>
+  <td class='header'>Buffer&nbsp;predictor</td>
+  <td class='value'>2</td>
+ </tr>
+</table><br>
+  </td><td>
+<table class='config'>
+ <tr>
+  <th>Operador</th>
+  <th class='value'>Cantidad</th>
+  <th class='value'>Latencia</th>
+ </tr>
+ <tr>
+  <td class='header'>Suma/Resta</td>
+  <td class='value'>1</td>
+  <td class='value'>4</td>
+ </tr>
+ <tr>
+  <td class='header'>Multiplicación/División</td>
+  <td class='value'>1</td>
+  <td class='value'>7</td>
+ </tr>
+ <tr>
+  <td class='header'>Enteros</td>
+  <td class='value'>1</td>
+  <td class='value'>1</td>
+ </tr>
+ <tr>
+  <td class='header'>Memoria de datos</td>
+  <td class='value'>1</td>
+  <td class='value'>2</td>
+ </tr>
+</table><br>
+<td>
+<table class='config'>
+  <tr>
+    <th>Cache L1I</th>
+    <td class='text'>perfecta</td>
+  </tr>
+</table>
+<br>
+<table class='config'>
+  <tr>
+    <th>Cache L1D</th>
+    <td class='text'>perfecta</td>
+  </tr>
+</table>
+<br>
+<table class='config'>
+  <tr>
+    <th>Cache L2</th>
+    <td class='text'>inactiva</td>
+  </tr>
+</table>
+<br>
+<br>
+</td>
+  </td></tr>
+</table><br>
+<table>
+ <tr  valign="top" bgcolor="#ddeeff">
+  <td>Memoria&nbsp;de&nbsp;datos</td>
+  <td>Memoria&nbsp;de&nbsp;instrucciones</td>
+ </tr>
+ <tr valign="top"><td>
+<table>
+ <tr bgcolor="#ccddff">
+  <td width="50" align="center">Dirección</td>
+  <td width="20" align="center">+0</td>
+  <td width="20" align="center">+1</td>
+  <td width="20" align="center">+2</td>
+  <td width="20" align="center">+3</td>
+  <td width="20" align="center">+4</td>
+  <td width="20" align="center">+5</td>
+  <td width="20" align="center">+6</td>
+  <td width="20" align="center">+7</td>
+ </tr>
+ <tr bgcolor="#eeeeee">
+  <td class='address' bgcolor="#ddeeff"><span style='color: royalblue; margin: 0 0.5em'>a</span></td>
+  <td align="center" colspan="8">2.00</td>
+</table><br>
+<table>
+ <tr bgcolor="#ccddff">
+  <td width="50" align="center">Dirección</td>
+  <td width="20" align="center">+0</td>
+  <td width="20" align="center">+1</td>
+  <td width="20" align="center">+2</td>
+  <td width="20" align="center">+3</td>
+  <td width="20" align="center">+4</td>
+  <td width="20" align="center">+5</td>
+  <td width="20" align="center">+6</td>
+  <td width="20" align="center">+7</td>
+ </tr>
+ <tr bgcolor="#eeeeee">
+  <td class='address' bgcolor="#ddeeff"><span style='color: seagreen; margin: 0 0.5em'>_stack</span></td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+</table><br>
+  </td><td>
+<!-- Mem Instr en columna -->
+<table>
+ <tr bgcolor="#ccddff">
+  <td width="75" align="left" nowrap='nowrap'>Dirección</td>
+  <td width="200" align="left" nowrap='nowrap'>Instrucciones</td>
+  <td aling='center' nowrap='nowrap'>Formato</td>
+ </tr>
+ <tr>
+  <td class='address'>_text</td>
+  <td bgcolor="#eeeeee" nowrap='nowrap'><font color="darkcyan">fadd.d f4,f2,f1</font></td>
+  <td bgcolor="#eeeeee" nowrap='nowrap'>02117253 | <span style='color:#e040fb' title='f7'>0000001</span><span style='color:#00c853' title='rs2'>00001</span><span style='color:#827717' title='rs1'>00010</span><span style='color:#90a4ae' title='rm'>111</span><span style='color:#1b5e20' title='rd'>00100</span><span style='color:#ff5252' title='op'>1010011</span> R <span class='field' style='color: #e040fb; border-color: #e040fb; width: 75px'>f7</span><span class='field' style='color: #00c853; border-color: #00c853; width: 53px'>rs2</span><span class='field' style='color: #827717; border-color: #827717; width: 53px'>rs1</span><span class='field' style='color: #90a4ae; border-color: #90a4ae; width: 31px'>rm</span><span class='field' style='color: #1b5e20; border-color: #1b5e20; width: 53px'>rd</span><span class='field' style='color: #ff5252; border-color: #ff5252; width: 75px'>op</span></td>
+ </tr>
+ <tr>
+  <td class='address'>4100</td>
+  <td bgcolor="#eeeeee" nowrap='nowrap'><font color="darkcyan">fmul.d f6,f4,f1</font></td>
+  <td bgcolor="#eeeeee" nowrap='nowrap'>12127353 | <span style='color:#e040fb' title='f7'>0001001</span><span style='color:#00c853' title='rs2'>00001</span><span style='color:#827717' title='rs1'>00100</span><span style='color:#90a4ae' title='rm'>111</span><span style='color:#1b5e20' title='rd'>00110</span><span style='color:#ff5252' title='op'>1010011</span> R <span class='field' style='color: #e040fb; border-color: #e040fb; width: 75px'>f7</span><span class='field' style='color: #00c853; border-color: #00c853; width: 53px'>rs2</span><span class='field' style='color: #827717; border-color: #827717; width: 53px'>rs1</span><span class='field' style='color: #90a4ae; border-color: #90a4ae; width: 31px'>rm</span><span class='field' style='color: #1b5e20; border-color: #1b5e20; width: 53px'>rd</span><span class='field' style='color: #ff5252; border-color: #ff5252; width: 75px'>op</span></td>
+ </tr>
+ <tr>
+  <td class='address'>4104</td>
+  <td bgcolor="#eeeeee" nowrap='nowrap'><font color="darkcyan">fld f4,0(gp) [a]</font></td>
+  <td bgcolor="#eeeeee" nowrap='nowrap'>0001b207 | <span style='color:#6200ea' title='imm'>000000000000</span><span style='color:#827717' title='rs1'>00011</span><span style='color:#ea80fc' title='f3'>011</span><span style='color:#1b5e20' title='rd'>00100</span><span style='color:#ff5252' title='op'>0000111</span> I <span class='field' style='color: #6200ea; border-color: #6200ea; width: 130px'>imm</span><span class='field' style='color: #827717; border-color: #827717; width: 53px'>rs1</span><span class='field' style='color: #ea80fc; border-color: #ea80fc; width: 31px'>f3</span><span class='field' style='color: #1b5e20; border-color: #1b5e20; width: 53px'>rd</span><span class='field' style='color: #ff5252; border-color: #ff5252; width: 75px'>op</span></td>
+ </tr>
+ <tr>
+  <td class='address'>4108</td>
+  <td bgcolor="#eeeeee" nowrap='nowrap'><font color="darkcyan">fmul.d f6,f6,f4</font></td>
+  <td bgcolor="#eeeeee" nowrap='nowrap'>12437353 | <span style='color:#e040fb' title='f7'>0001001</span><span style='color:#00c853' title='rs2'>00100</span><span style='color:#827717' title='rs1'>00110</span><span style='color:#90a4ae' title='rm'>111</span><span style='color:#1b5e20' title='rd'>00110</span><span style='color:#ff5252' title='op'>1010011</span> R <span class='field' style='color: #e040fb; border-color: #e040fb; width: 75px'>f7</span><span class='field' style='color: #00c853; border-color: #00c853; width: 53px'>rs2</span><span class='field' style='color: #827717; border-color: #827717; width: 53px'>rs1</span><span class='field' style='color: #90a4ae; border-color: #90a4ae; width: 31px'>rm</span><span class='field' style='color: #1b5e20; border-color: #1b5e20; width: 53px'>rd</span><span class='field' style='color: #ff5252; border-color: #ff5252; width: 75px'>op</span></td>
+ </tr>
+ <tr>
+  <td class='address'>final</td>
+  <td bgcolor="#eeeeee" nowrap='nowrap'><font color="darkblue">ori a7,zero,10</font></td>
+  <td bgcolor="#eeeeee" nowrap='nowrap'>00a06893 | <span style='color:#6200ea' title='imm'>000000001010</span><span style='color:#827717' title='rs1'>00000</span><span style='color:#ea80fc' title='f3'>110</span><span style='color:#1b5e20' title='rd'>10001</span><span style='color:#ff5252' title='op'>0010011</span> I <span class='field' style='color: #6200ea; border-color: #6200ea; width: 130px'>imm</span><span class='field' style='color: #827717; border-color: #827717; width: 53px'>rs1</span><span class='field' style='color: #ea80fc; border-color: #ea80fc; width: 31px'>f3</span><span class='field' style='color: #1b5e20; border-color: #1b5e20; width: 53px'>rd</span><span class='field' style='color: #ff5252; border-color: #ff5252; width: 75px'>op</span></td>
+ </tr>
+ <tr>
+  <td class='address'>4116</td>
+  <td bgcolor="#eeeeee" nowrap='nowrap'><font color="darkblue">ecall</font></td>
+  <td bgcolor="#eeeeee" nowrap='nowrap'>00000073 | <span style='color:#6200ea' title='imm'>000000000000</span><span style='color:#827717' title='rs1'>00000</span><span style='color:#ea80fc' title='f3'>000</span><span style='color:#1b5e20' title='rd'>00000</span><span style='color:#ff5252' title='op'>1110011</span> I <span class='field' style='color: #6200ea; border-color: #6200ea; width: 130px'>imm</span><span class='field' style='color: #827717; border-color: #827717; width: 53px'>rs1</span><span class='field' style='color: #ea80fc; border-color: #ea80fc; width: 31px'>f3</span><span class='field' style='color: #1b5e20; border-color: #1b5e20; width: 53px'>rd</span><span class='field' style='color: #ff5252; border-color: #ff5252; width: 75px'>op</span></td>
+ </tr>
+</table>
+  </td></tr>
+</table><br>
+<address>Arquitectura e Ingeniería de Computadores</address>
+</body></html>
