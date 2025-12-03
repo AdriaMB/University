@@ -170,9 +170,8 @@ int fractal_newton(double x1, double x2, double y1, double y2,
       MPI_Irecv(B, w, MPI_BYTE, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD,
                &req);
 
-      MPI_Test(&req, &flag ,&status); // alters flag
-      while(next_row < h && !flag){ // flag = 1 -> value arrived
-        //printf("Hello from master");
+      MPI_Test(&req, &flag ,&status); // we check if there is any message received.
+      while(next_row < h && !flag){ // flag = 1 -> value arrived; flag = 0 -> value didn't arrive yet
         // process row number next_row
         for ( j = 0 ; j < w ; j++ ) {
           z0 = (x1 + ix*j) + (y1 + iy*next_row)*I;
@@ -183,14 +182,13 @@ int fractal_newton(double x1, double x2, double y1, double y2,
         next_row  += 1;
         rows_done += 1;
 
-        MPI_Test(&req, &flag ,&status); // alters flag
+        MPI_Test(&req, &flag ,&status); // updates flag
       }
 
       // if nothing received yet then
-
       if(!flag){
         //wait in a blocking way to receive a message
-        MPI_Wait(&req, &status);
+        MPI_Wait(&req, &status); // WE USE WAIT AND NOT BLOCKING RECEIVE
       }
 
       /* Get the process index and the row number */
@@ -203,13 +201,11 @@ int fractal_newton(double x1, double x2, double y1, double y2,
       /* Copy the row received into its place in the image */
       memcpy(&A(num_row, 0), B, w);
       rows_done++;
-
     }
 
   } else {
 
     /* CODE FOR WORKERS */
-
     /* Receive the number of the row to be computed, or an out-of-range number to end */
     MPI_Recv(&num_row, 1, MPI_INT, 0, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
     while ( num_row < h ) {

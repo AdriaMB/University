@@ -8,4 +8,4 @@ COPY ./cliente.js myclient.js
 # - HN parameter is special id that indicates the client to get unique host-based id.
 # - repeat 10 requests
 # - need to edit HOST, change XXX.XXX.XXX.XXX to the right broker IP address
-CMD node myclient HN 10 XXX.XXX.XXX.XXX 9998
+CMD node myclient HN 10 $BROKER_HOST 9998
