@@ -65,6 +65,9 @@ int main(int argc, char *argv[])
   MPI_Comm_rank(MPI_COMM_WORLD, &me);
   MPI_Comm_size(MPI_COMM_WORLD, &num_procs);
 
+
+
+
   while (argc > 1) {
     argc--; argv++;
     if (argv[0][0] != '-') {
@@ -138,26 +141,31 @@ int main(int argc, char *argv[])
   /* Distribute M and v by blocks of rows (mb rows for each process)
    * and send the initial x to all */
 
-//MPI_Scatter(sendbuf, sendcount, sendtype, recvbuf, recvcount, recvtype, root, comm)
-//MPI_Bcast(buffer, count, datatype, root, comm)
+  //MPI_Scatter(sendbuf, sendcount, sendtype, recvbuf, recvcount, recvtype, root, comm)
+  //MPI_Bcast(buffer, count, datatype, root, comm)
 
-    if(me == 0){
-      // Scatter M to all other processes
-      MPI_Scatter(M, sz, MPI_DOUBLE, Mloc, sz, MPI_DOUBLE, 0, MPI_COMM_WORLD);
 
-      // Scatter v to all processes
-      MPI_Scatter(v, mb, MPI_DOUBLE, vloc, mb, MPI_DOUBLE, 0, MPI_COMM_WORLD);
 
-      //Scatter x to all processes
-      MPI_Bcast(x, n, MPI_DOUBLE, 0, MPI_COMM_WORLD);
-    }
+
+  // We divide M in parts and assign to each process a part
+  MPI_Scatter(M, sz, MPI_DOUBLE, Mloc, sz, MPI_DOUBLE, 0, MPI_COMM_WORLD);
+
+  // We divide v in parts and assign to each process a part
+  MPI_Scatter(v, mb, MPI_DOUBLE, vloc, mb, MPI_DOUBLE, 0, MPI_COMM_WORLD);
+
+
+  //Broadcast x to all processes
+  MPI_Bcast(x, n, MPI_DOUBLE, 0, MPI_COMM_WORLD);
+
 
   // ONCE WE USE SCATTER, THE RECEIVE STATEMENTS ARE NOT NECESSARY:
-  // else {
-  // MPI_Recv(Mloc, sz, MPI_DOUBLE, 0, 13, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-  // MPI_Recv(vloc, mb, MPI_DOUBLE, 0, 89, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-  // MPI_Recv(x, n, MPI_DOUBLE, 0, 25, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-  // }
+  // This is due to the fact that ALL processes will execute the Scatter
+  // action. Only process 0 will actually send, the rest will only listen and
+  // wait.
+
+  // THE SAME HAPPENS WITH Bcast(...). EVERY PROCESS MUST EXECUTE IT, EVEN
+  // THOUGH IT IS NOT THE ROOT PROCESS(in case the process that executes that // is not the root, it will perform some kind of Recv to obtain the value)
+
 
   mLoc = n - me * mb;
   if (mLoc > mb)
@@ -205,14 +213,20 @@ int main(int argc, char *argv[])
   /* COMMUNICATIONS */
   /* Compute the 1-norm of the complete x from the 1-norm of each fragment,
    * i.e. compute the sum of the local norms, leaving the result in process 0 */
+  //MPI_Reduce(sendbuf, recvbuf, count, datatype, op, root, comm)
+
+  MPI_Reduce(&norma, &aux, 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
+  norma = aux;
+
+  /**
   if (me == 0) {
     for (proc = 1; proc < num_procs; proc++) {
-      MPI_Recv(&aux, 1, MPI_DOUBLE, proc, 65, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
       norma += aux;
     }
   } else {
     MPI_Send(&norma, 1, MPI_DOUBLE, 0, 65, MPI_COMM_WORLD);
   }
+  */
 
   t = MPI_Wtime() - t;
 
@@ -227,3 +241,16 @@ int main(int argc, char *argv[])
 
   return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

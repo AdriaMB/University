@@ -1,0 +1,14 @@
+{
+  "Resources": {
+    "EC2Instance": {
+      "Type": "AWS::EC2::Instance",
+      "Properties": {
+        "SecurityGroupIds": ["sg-aa1f0fd8"],
+        "KeyName": "alucloud04-keypair",
+        "ImageId": "ami-0d58e7ba2b532aa6e",
+        "InstanceType": "t2.micro",
+        "SubnetId": "subnet-2bfb6c4f"
+      }
+    }
+  }
+}

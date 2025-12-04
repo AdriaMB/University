@@ -1,0 +1,31 @@
+{
+  "Resources" : {
+    "EC2Instance" : {
+      "Type" : "AWS::EC2::Instance",
+      "Properties" : {
+        "SecurityGroupIds" : [ "sg-cc8b8dbe" ],
+        "KeyName" : "alucloud04-keypair",
+        "ImageId" : "ami-0d58e7ba2b532aa6e",
+        "InstanceType" : "t2.micro",
+        "SubnetId": "subnet-2bfb6c4f"
+      }
+    },
+   
+    "EBSVolume" : {
+      "Type" : "AWS::EC2::Volume",
+      "Properties" : {
+        "Size" : "10",
+        "AvailabilityZone" : { "Fn::GetAtt" : [ "EC2Instance", "AvailabilityZone" ]}
+      }
+    },
+
+   "MountPoint" : {
+     "Type" : "AWS::EC2::VolumeAttachment",
+     "Properties" : {
+       "InstanceId" : { "Ref" : "EC2Instance" },
+       "VolumeId"  : { "Ref" : "EBSVolume" },
+       "Device" : "/dev/sdf"
+     }
+   }
+  }
+}
