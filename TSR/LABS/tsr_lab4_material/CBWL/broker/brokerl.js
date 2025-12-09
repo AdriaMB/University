@@ -1,6 +1,9 @@
 const {zmq, lineaOrdenes, traza, error, adios, creaPuntoConexion, conecta} = require('../tsr')
+//const zmq = = require('zeromq/v5-compat') // added by me
+
+
 const ans_interval = 2000 // deadline to detect worker failure
-lineaOrdenes("frontendPort backendPort loggerHost loggerPort")
+lineaOrdenes("frontendPort backendPort loggerHost loggerPort") // incorpora en la línea de órdenes dos nuevos argumentos
 
 let failed   = {}	// Map(worker:bool) failed workers has an entry
 let working  = {}	// Map(worker:timeout) timeouts for workers executing tasks
@@ -8,12 +11,12 @@ let ready    = []	// List(worker) ready workers (for load-balance)
 let pending  = []	// List([client,message]) requests waiting for workers
 let frontend = zmq.socket('router')
 let backend  = zmq.socket('router')
-let slogger   = zmq.socket('push')
+let slogger   = zmq.socket('push') // cambio 2
 
 slogger.send ("broker starts")
 
 function dispatch(client, message) {
-	traza('dispatch','client message',[client,message])
+	traza('dispatch','client message',[client,message], )
 	if (ready.length) new_task(ready.shift(), client, message)
 	else 			  pending.push([client,message])
 }
@@ -21,6 +24,7 @@ function new_task(worker, client, message) {
 	traza('new_task','client message',[client,message])
 	working[worker] = setTimeout(()=>{failure(worker,client,message)}, ans_interval)
 	backend.send([worker,'', client,message])
+
 }
 function failure(worker, client, message) {
 	traza('failure','client message',[client,message])
@@ -51,4 +55,4 @@ frontend.on('error'  , (msg) => {error(`${msg}`)})
  
 creaPuntoConexion(frontend, frontendPort)
 creaPuntoConexion( backend,  backendPort)
-conecta(slogger, loggerHost, loggerPort)
+conecta(slogger, loggerHost, loggerPort) // cambio 2

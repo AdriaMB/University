@@ -1,4 +1,7 @@
 const {zmq, lineaOrdenes, traza, error, adios, creaPuntoConexion} = require('../tsr')
+//const zmq = require('zeromq/v5-compat') // added by me
+
+
 lineaOrdenes("loggerPort filename")
 // logger in NodeJS
 // First argument is port number for incoming messages

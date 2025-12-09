@@ -111,7 +111,7 @@ int main(int argc, char *argv[])
     return 1;
   }
 
-  sz = n * nb;
+  sz = n * nb;        // sz = number of rows * block size
   if (me == 0) {
     x = M + n * n2;
     v = x + n2;
@@ -144,26 +144,6 @@ int main(int argc, char *argv[])
   MPI_Scatter(x, nb, MPI_DOUBLE, xloc1, nb, MPI_DOUBLE, 0, MPI_COMM_WORLD);
 
 
-
-/*
-  if (me == 0) {
-    // For process 0, copy the data
-    for (j = 0; j < nb; j++) {
-      for (i = 0; i < n; i++)
-        Mloc(i, j) = M(i, j);
-      xloc1[j] = x[j];
-    }
-    // For other processes, send the data
-    for (proc = 1; proc < num_procs; proc++) {
-      MPI_Send(&M[proc*sz], sz, MPI_DOUBLE, proc, 13, MPI_COMM_WORLD);
-      MPI_Send(&x[proc*nb], nb, MPI_DOUBLE, proc, 25, MPI_COMM_WORLD);
-    }
-  } else {
-    MPI_Recv(Mloc, sz, MPI_DOUBLE, 0, 13, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-    MPI_Recv(xloc1, nb, MPI_DOUBLE, 0, 25, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-  }
-*/
-
   nLoc = n - me * nb;
   if (nLoc > nb)
     nLoc = nb;
@@ -173,7 +153,7 @@ int main(int argc, char *argv[])
     for (i = 0; i < n; i++) {
       aux = 0;
       for (j = 0; j < nLoc; j++)
-        aux += Mloc(i, j) * xloc1[j];
+        aux += Mloc(i, j) * xloc1[j]; // We are multiplying by xloc1, which corresponds to the result of the previous iteration
       xloc2[i] = aux;
     }
 
@@ -182,48 +162,31 @@ int main(int argc, char *argv[])
      * and add v, leaving the result in process 0.
      * Then, distribute the vector among the processes, for the next iteration */
 
-    // Operate with my own xloc2
-    // Receive xloc2 from other processes and add it to x.
+    // In xloc2 we have stored the result of multiplying Mloc*xloc1
+    // However, each xloc2 stores a PARTIAL SUM or calculation of the real xloc2, so
+    // now we have to reduce all result into the definitive xloc2:
+
+    // We sum up all the elements and store them into x. Now x contains the real
+    // result of multiplying M*xloc1
     MPI_Reduce(xloc2, x, n, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
+
+    // Now, we have to add the vector v in order to obtain the new x:
     // add v, leaving the result in process 0
     if(me == 0){
-      for(j = 0; j < nb; j++){
+      for(j = 0; j < n; j++){
         x[j] += v[j];
       }
     }
-    // For other processes, send the data
-    MPI_Bcast(x, nb, MPI_DOUBLE, 0, MPI_COMM_WORLD);
-
-
-
-/*
-    if (me == 0) {
-      // Operate with my own xloc2
-      for (i = 0; i < n; i++)
-        x[i] = xloc2[i] + v[i];
-      // Receive xloc2 from other processes and add it to x.
-      for (proc = 1; proc < num_procs; proc++) {
-        MPI_Recv(xloc2, n, MPI_DOUBLE, proc, 49, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-        for (i = 0; i < n; i++)
-          x[i] += xloc2[i];
-      }
-      // For process 0, copy the data
-      for (j = 0; j < nb; j++)
-        xloc1[j] = x[j];
-      // For other processes, send the data
-      for (proc = 1; proc < num_procs; proc++)
-        MPI_Send(&x[proc*nb], nb, MPI_DOUBLE, proc, 53, MPI_COMM_WORLD);
-    } else {
-      // Send xloc2, receive xloc1
-      MPI_Send(xloc2, n, MPI_DOUBLE, 0, 49, MPI_COMM_WORLD);
-      MPI_Recv(xloc1, nb, MPI_DOUBLE, 0, 53, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-    }
-    */
+    // Now we have the result of this iteration stored in x. However, we still
+    // have more iterations to perform. We must send to each xloc1 from each process
+    // the part of x that they will use. As xloc1 is smaller than x, we will
+    // divide the contents of x evenly between each process
+    MPI_Scatter(x, nb, MPI_DOUBLE, xloc1, nb, MPI_DOUBLE, 0, MPI_COMM_WORLD);
 
   } // end of the iter loop
 
-
-
+// IT WORKS!!!!!!!!! ALELUYA
+// Right now, x has the final value resulting from all iterations
 
   #define ABS(a) ((a) >= 0 ? (a) : -(a))
   /* Compute the 1-norm of the local part of x (xloc1) */
@@ -234,14 +197,9 @@ int main(int argc, char *argv[])
   /* COMMUNICATIONS */
   /* Compute the 1-norm of the complete x from the 1-norm of each fragment,
    * i.e. compute the sum of the local norms, leaving the result in process 0 */
-  if (me == 0) {
-    for (proc = 1; proc < num_procs; proc++) {
-      MPI_Recv(&aux, 1, MPI_DOUBLE, proc, 65, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-      norma += aux;
-    }
-  } else {
-    MPI_Send(&norma, 1, MPI_DOUBLE, 0, 65, MPI_COMM_WORLD);
-  }
+
+  MPI_Reduce(&norma, &aux, 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
+  norma = aux;
 
   t = MPI_Wtime() - t;
 

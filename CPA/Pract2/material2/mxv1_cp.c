@@ -184,24 +184,9 @@ int main(int argc, char *argv[])
     /* Prepare for next iteration. Form the complete vector x (x)
      * by assembling the fragments of x (xloc) in each process,
      * and replicate it in all the processes */
-    if (me == 0) {
-      /* Put all the fragments of x in their place */
-      /* The first fragment is mine, so copy it */
-      for (i = 0; i < mb; i++)
-        x[i] = xloc[i];
-      /* The rest of the fragments must be received from other processes */
-      for (proc = 1; proc < num_procs; proc++)
-        MPI_Recv(&x[proc*mb], mb, MPI_DOUBLE, proc, 49,
-                 MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-      /* Send the complete x to everyone */
-      for (proc = 1; proc < num_procs; proc++)
-        MPI_Send(x, n, MPI_DOUBLE, proc, 53, MPI_COMM_WORLD);
-    } else {
-      /* Send my fragment of x */
-      MPI_Send(xloc, mb, MPI_DOUBLE, 0, 49, MPI_COMM_WORLD);
-      /* Receive the complete vector x */
-      MPI_Recv(x, n, MPI_DOUBLE, 0, 53, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-    }
+
+    MPI_Allgather(xloc, mb, MPI_DOUBLE, x, mb, MPI_DOUBLE, MPI_COMM_WORLD);
+
   } /* end of the iter loop */
 
 #define ABS(a) ((a) >= 0 ? (a) : -(a))

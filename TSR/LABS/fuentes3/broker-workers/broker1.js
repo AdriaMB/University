@@ -1,5 +1,5 @@
-const {lineaOrdenes, traza, error, adios, creaPuntoConexion} = require('../tsr')
-const zmq = require('zeromq/v5-compat')
+const {zmq, lineaOrdenes, traza, error, adios, creaPuntoConexion} = require('../tsr')
+//const zmq = require('zeromq/v5-compat')
 
 
 lineaOrdenes("frontendPort backendPort")
