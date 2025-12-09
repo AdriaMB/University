@@ -17,8 +17,11 @@ void inventa(int m, int n, double *A)
   for (m *= n; m > 0; m--)
     *A++ = D01;
 }
+
 /* Se asume que todos los elementos son no negativos,
  * lo que es cierto si se ha generado con la función inventa */
+// La norma infinito de una matriz: la máxima de las sumas de los
+// valores absolutos de las filas
 double inf_norma(int m, int n, double *A)
 {
   double max, aux;
@@ -110,16 +113,16 @@ int main(int argc, char *argv[])
     return 1;
   }
 
-  sz = mb * n;
+  sz = mb * n;      // num of elements of local block
   if (me == 0) {
-    v = M + n2 * n;
-    Mloc = v + n2;
+    v = M + n2 * n; // address of first element of v
+    Mloc = v + n2;  // address of first element of Mloc IN CASE OF PROCESS 0
   } else {
     Mloc = M;
   }
-  vloc = Mloc + sz;
-  xloc = vloc + mb;
-  x = xloc + mb;
+  vloc = Mloc + sz; // Size of Mloc = sz
+  xloc = vloc + mb; // Size of vloc = mb
+  x = xloc + mb;    // Size of xloc = mb
 
   if (me == 0) {
     srand(semilla);
@@ -145,6 +148,7 @@ int main(int argc, char *argv[])
     /* For other processes, send the data */
     for (proc = 1; proc < num_procs; proc++) {
       MPI_Send(&M[proc*sz], sz, MPI_DOUBLE, proc, 13, MPI_COMM_WORLD);
+      // The process 1 will receive the elements stored from proc*sz (sz) until (proc + 1)(sz-1)
       MPI_Send(&v[proc*mb], mb, MPI_DOUBLE, proc, 89, MPI_COMM_WORLD);
       MPI_Send(x, n, MPI_DOUBLE, proc, 25, MPI_COMM_WORLD);
     }
@@ -153,11 +157,14 @@ int main(int argc, char *argv[])
     MPI_Recv(vloc, mb, MPI_DOUBLE, 0, 89, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
     MPI_Recv(x, n, MPI_DOUBLE, 0, 25, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
   }
-
+  // Every process except the last one will get mb rows; the last
+  // one will get the rest
   mLoc = n - me * mb;
   if (mLoc > mb)
     mLoc = mb;
 
+  // Mloc will be the true number of rows with which a process
+  // will
   for (iter = 1; iter <= num_iter; iter++) {
     /* Compute local part of M*x + v into xloc */
     for (i = 0; i < mLoc; i++) {

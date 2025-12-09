@@ -339,12 +339,32 @@ int main(int argc, char *argv[])
   }
 
   /* STEP 2: Distribute data (A, b) */
+  // A row-cyclic distribution using p processes of the whole matrix can be done with
+  // a loop where each iteration performs a scatter operation
+
+  MPI_Bcast(b, n, MPI_DOUBLE, 0, MPI_COMM_WORLD); // Everyone must have the same b, so we keep it
+
+  // We will perform k scatter operations, where k is the result of:
+  int k = ceil((double)n/p); // we divide the number of rows n by the number of processes p, which gives us the number of iterations we must perform
+
+  for(int i = 0; i < k; i++){
+    //We have to translate from global to local indexes
+
+    // Scatter (sendbuf, sendcount, sendtype, recvbuf, recvcount, recvtype, root, comm)
+    MPI_Scatter( A[], mb*n, MPI_DOUBLE, Aloc[], mb*n, MPI_DOUBLE, 0 MPI_COMM_WORLD);
+
+
+  }
+
+
+  /**
   MPI_Bcast(b, n, MPI_DOUBLE, 0, MPI_COMM_WORLD); // b is replicated in all processes
 
   // A is evenly distributed
   MPI_Scatter(A[0], mb * n, MPI_DOUBLE,
               Aloc[0], mb * n, MPI_DOUBLE, 0, MPI_COMM_WORLD);
 
+  */
 #ifdef VERBOSE
   rc = printMat(Aloc, mloc, n, "\nMatrix A");
   CHECK(rc, 4);

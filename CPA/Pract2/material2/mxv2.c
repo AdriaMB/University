@@ -17,8 +17,11 @@ void inventa(int m, int n, double *A)
   for (m *= n; m > 0; m--)
     *A++ = D01;
 }
+
 /* Se asume que todos los elementos son no negativos,
  * lo que es cierto si se ha generado con la función inventa */
+// La norma uno: la máxima de las sumas de los valores absolutos
+// de las columnas
 double uno_norma(int m, int n, double *A)
 {
   double max, aux;

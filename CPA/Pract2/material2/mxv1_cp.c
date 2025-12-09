@@ -65,9 +65,6 @@ int main(int argc, char *argv[])
   MPI_Comm_rank(MPI_COMM_WORLD, &me);
   MPI_Comm_size(MPI_COMM_WORLD, &num_procs);
 
-
-
-
   while (argc > 1) {
     argc--; argv++;
     if (argv[0][0] != '-') {
@@ -113,16 +110,16 @@ int main(int argc, char *argv[])
     return 1;
   }
 
-  sz = mb * n;
+  sz = mb * n;        // num of elements of local block
   if (me == 0) {
-    v = M + n2 * n;
-    Mloc = v + n2;
+    v = M + n2 * n;   // address of first element of v
+    Mloc = v + n2;    // address of first element of Mloc IN CASE OF PROCESS 0
   } else {
     Mloc = M;
   }
-  vloc = Mloc + sz;
-  xloc = vloc + mb;
-  x = xloc + mb;
+  vloc = Mloc + sz;    // Size of Mloc = sz
+  xloc = vloc + mb;    // Size of vloc = mb
+  x = xloc + mb;       // Size of xloc = mb
 
   if (me == 0) {
     srand(semilla);
