@@ -8,10 +8,10 @@
 #define EPSILON 1e-16
 #define CHECK(rc, paso) (rc) ? printf("Error %d, paso %d\n", rc, paso) : 0
 #define MIN(a, b) (((a) < (b)) ? (a) : (b))
-#define VERBOSE
+#define VERBOSE // used for detailed debugging
 
 /* Generador de matrices bien condicionadas           */
-/* Entrada: Dimension del problema                    */
+/* Entrada: Dimension del problema(n * m)             */
 /* Salida: Puntero a la Matriz Generada               */
 /* Notas: Reserva memoria, devuelve NULL ante errores */
 double **genMat(int n, int m)
@@ -22,11 +22,13 @@ double **genMat(int n, int m)
 
   if ((n > 0) && (m > 0)) {
     /* Reserva un area contigua para todas las filas */
-    pdWorkArea = (double *)malloc(sizeof(double) * n * m);
-    A = (double **)malloc(sizeof(double *) * n);
+    pdWorkArea = (double *)malloc(sizeof(double) * n * m);    // Genera el espacio completo de la matriz n*m
+    A = (double **)malloc(sizeof(double *) * n);              // A apunta a una matriz de tamaño n donde cada
+                                                              // componente es un puntero a una de las filas de la matriz
     if (pdWorkArea && A)
       for (i = 0; i < n; i++)
-        A[i] = (pdWorkArea + m * i);
+        A[i] = (pdWorkArea + m * i);                          // Almacena en A[i] la dirección de la fila i de la matriz.
+                                                              // La dirección de una fila = pdWorkArea(la dirección base) + m*i(la longitud de las filas anter.)
   }
   return A;
 }
@@ -166,13 +168,19 @@ int printVec(double *ppdVec, int n, char *header)
 /* Returns the process that owns row i */
 int owner(int i, int p, int mb) {
    /* Block distribution */
-   return i/mb;
+   //return i/mb;
+
+   /* Cyclic distribution */
+   return i%p;
 }
 
 /* Returns the local index of row i in the local matrix of its owner process */
 int localIndex(int i, int p, int mb) {
    /* Block distribution */
-   return i%mb;
+   //return i%mb;
+
+   /* Cyclic distribution */
+   return i/p;
 }
 
 /* Returns the number of local rows in the process iproc */
@@ -181,14 +189,14 @@ int numLocalRows(int n, int mb, int p, int iproc) {
    /* Comment out the code for the distribution that is not wanted */
    
    /* Block distribution */
-   mloc = MIN(mb, n - mb * iproc);
-   if (mloc < 0) mloc = 0;
-   return mloc;
+   //mloc = MIN(mb, n - mb * iproc);
+   //if (mloc < 0) mloc = 0;
+   //return mloc;
 
    /* Cyclic distribution */
-   //mloc = n/p;
-   //if (iproc < n%p) mloc++;
-   //return mloc;
+   mloc = n/p;
+   if (iproc < n%p) mloc++;
+   return mloc;
 }
 
 /* LU factorization
@@ -344,16 +352,10 @@ int main(int argc, char *argv[])
 
   MPI_Bcast(b, n, MPI_DOUBLE, 0, MPI_COMM_WORLD); // Everyone must have the same b, so we keep it
 
-  // We will perform k scatter operations, where k is the result of:
-  int k = ceil((double)n/p); // we divide the number of rows n by the number of processes p, which gives us the number of iterations we must perform
-
-  for(int i = 0; i < k; i++){
+  for(int i = 0; i < mb; i++){
     //We have to translate from global to local indexes
-
     // Scatter (sendbuf, sendcount, sendtype, recvbuf, recvcount, recvtype, root, comm)
-    MPI_Scatter( A[], mb*n, MPI_DOUBLE, Aloc[], mb*n, MPI_DOUBLE, 0 MPI_COMM_WORLD);
-
-
+    MPI_Scatter( A[p*i], n, MPI_DOUBLE, Aloc[i], n, MPI_DOUBLE, 0, MPI_COMM_WORLD);
   }
 
 

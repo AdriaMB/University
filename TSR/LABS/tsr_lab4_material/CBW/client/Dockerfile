@@ -1,3 +1,4 @@
+# Take as base the image tsr-zmq
 FROM tsr-zmq
 COPY ./tsr.js tsr.js
 RUN mkdir client

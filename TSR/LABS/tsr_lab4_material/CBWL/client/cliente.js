@@ -1,7 +1,9 @@
 const {zmq, lineaOrdenes, traza, error, adios, conecta} = require('../tsr')
+let req = zmq.socket('req')
+
 lineaOrdenes("id num_peticiones brokerHost brokerPort")
 
-let req = zmq.socket('req')
+
 
 // Connection ID as specified as argument. If we specify "NH", id will be created based on own hostname
 id = (id=="HN") ? "CLI_"+require('os').hostname() : id 

@@ -16,10 +16,39 @@ function lineaOrdenes(params) {	//Comprobacion de parametros en linea de órdene
 	for (let a in args) {console.log(`\t${args[a]}\t|${global[args[a]]}|`)}
 }
 
+//Inicializamos logger
+let slogger = null
+
 function traza(f,names,value) { //muestra los argumentos al invocar la función f
+	// 1) Comportamiento original
 	console.log(`funcion ${f}`)
 	var args = names.split(" ")
 	for (let a in args) console.log(`\t${args[a]}\t|${value[a]}|`)
+
+	// 2) NUEVO: si estamos en el broker(tiene loggedHost/loggedPort), mandamos al logger
+	if(global.loggerHost && global.loggerPort){
+		//Inicializar slogger si es la primera vez
+		if(!slogger){
+			slogger = zmq.socket('push')
+			slogger.connect(`tcp://${global.loggerHost}:${global.loggerPort}`)
+		}
+		//Construimos una linea para el log
+		let piezas = [`funcion ${f}`]
+		for(let i = 0; i < args.length; i++){
+			piezas.push(`${args[i]} = ${value[i]}`)
+		}
+		const linea = piezas.join();
+
+		//Enviando al logger desde traza
+		try{
+			slogger.send(linea);
+		}
+		catch(e){
+			console.error("Error enviando a slogger");
+		}
+	}
+
+
 }
 
 function adios(sockets, despedida) {		//cierra la conexión y el proceso

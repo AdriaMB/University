@@ -1,3 +1,12 @@
+# image: local or remote reference to an existing image
+# build: pathname of a directory that contains the Dockerfile
+# command: changes the commando to be run in the container
+# links: links to containers of another service (ESTABLISH DEPENDENDCIES)
+# external_links: links to containers externals to "compose"( a container created 1.manually, 2.by another docker-compose.yml file or 3.another tool different than docker compose)
+# ports: exposed ports
+# expose: exposed ports ONLY ACCESSIBLE by linked services(services defined in links or external_links clausures)
+# volumes: mounts host pathnames as container volumes(used for managin)
+
 version: '2'
 services:
   cli:
@@ -6,7 +15,7 @@ services:
     links:
       - bro
     environment:
-      - BROKER_HOST=bro
+      - BROKER_HOST=brof
       - BROKER_PORT=9998
   wor:
     image: worker
