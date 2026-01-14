@@ -8,7 +8,7 @@
 #define EPSILON 1e-16
 #define CHECK(rc, paso) (rc) ? printf("Error %d, paso %d\n", rc, paso) : 0
 #define MIN(a, b) (((a) < (b)) ? (a) : (b))
-#define VERBOSE // used for detailed debugging
+//#define VERBOSE // used for detailed debugging
 
 /* Generador de matrices bien condicionadas           */
 /* Entrada: Dimension del problema(n * m)             */
@@ -324,6 +324,9 @@ int main(int argc, char *argv[])
   if (n % p != 0) mb++;
   mloc = numLocalRows(n,mb,p,iproc);
 
+  double t1 = MPI_Wtime();
+
+
   /* STEP 1: Generate matrix A and vector b in process 0 */
   if (iproc == 0) {
     /* Use a number of rows multiple of the block size */
@@ -415,6 +418,12 @@ int main(int argc, char *argv[])
     rc = liberaMat(A);
     CHECK(rc, 12);
   }
+
+
+  double t2 = MPI_Wtime();
+
+  printf("\nTotal time: %f\n", t2-t1);
+
 
   MPI_Finalize();
   return 0;

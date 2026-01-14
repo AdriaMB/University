@@ -73,7 +73,7 @@
  * Fase de lanzamiento de instrucciones
  */
 boolean fase_ISS_alum() {
-    int     s;
+    int     s;      // s IS THE RESERVATION STATION/LOAD,STORE BUFFER
     marca_t b;      // b IS THE MARK OF THE INSTRUCTION IN THE ROB
 
     /* Decodificación */
