@@ -13,8 +13,10 @@ function procesaPeticion(cliente, msg) { // llega peticion desde el DEALER del b
 	traza('procesaPeticion','cliente msg',[cliente,msg])
 	//  If there are workers
 	if (workers.length) backend.send([workers.shift(),'',cliente,msg])
-	else pendiente.push([cliente,msg]) // In case there aren't
+	//else pendiente.push([cliente,msg]) // In case there aren't				//Como solo vamos a recibir un mensaje cuando hayan workers, esta estructura no es realmente necesaria
 }
+
+// AQUÍ NO COMPROBAMOS SI HAY ALGÚN MENSAJE PENDIENTE: tan pronto como recibamos la respuesta, guardamos al worker correspondiente en workers[]
 function procesaMsgWorker(worker,sep,cliente,resp) {
 	traza('procesaMsgWorker','worker sep cliente resp',[worker,sep,cliente,resp])
 	/**

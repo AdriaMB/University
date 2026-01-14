@@ -30,6 +30,7 @@ function procesaMsgWorker(cliente,resp) {
 	else workers++; // añadimos al worker como disponible
 	console.log("-------------------------\n" + workers + "\n-----------------------\n")
 	if (cliente) frontend.send([cliente,'',resp]) // habia un cliente esperando esa respuesta
+	// Cuando cliente esté vacío (sea '') significará que un nuevo worker ha llegado, el mensaje que estamos recibiendo es únicamente un aviso para incrementemos la cantidad de workers y por lo tanto no debemos pasarlo a los clientes
 }
 
 frontend.on('message', procesaPeticion)

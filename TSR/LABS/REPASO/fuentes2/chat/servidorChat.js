@@ -1,4 +1,5 @@
-const {zmq, lineaOrdenes, error, adios, creaPuntoConexion} = require('../tsr')
+const {lineaOrdenes, error, adios, creaPuntoConexion} = require('../tsr')
+const zmq = require("zeromq/v5-compat")
 lineaOrdenes("portDifusion portEntrada")
 
 let entrada = zmq.socket('pull')
@@ -8,7 +9,7 @@ creaPuntoConexion(entrada,portEntrada)
 
 entrada.on('message', (id,txt) => {
 	switch (txt.toString()) {
-		case 'HI':  salida.send(['server', id+' connected']); break
+		case 'HI':  salida.send(['HI', id+' connected']); break
 		case 'BYE': salida.send(['server', id+' disconnected']); break
 		default:    salida.send([id,txt])
 	}
