@@ -1,6 +1,8 @@
 services:
   mongo:
     image: mongo
+    volumes:
+      - /tmp/mymongo:/data/db
     restart: always
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
@@ -16,3 +18,5 @@ services:
       ME_CONFIG_BASICAUTH_ENABLED: true
       ME_CONFIG_BASICAUTH_USERNAME: mongoexpressuser
       ME_CONFIG_BASICAUTH_PASSWORD: mongoexpresspass
+volumes:
+    mongo_db:
