@@ -15,7 +15,7 @@ services:
     links:
       - bro
     environment:
-      - BROKER_HOST=brof
+      - BROKER_HOST=bro
       - BROKER_PORT=9998
   wor:
     image: worker
