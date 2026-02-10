@@ -1,0 +1,44 @@
+------------ PROBLEMA 1: ------------ 
+
+
+#Instalación de OR Tools
+!pip install ortools
+
+#Importar el wrapper de OR Tools para trabajar con solvers de programación lineal
+from ortools.linear_solver import pywraplp
+
+#Creación de la instancia del solver
+solver = pywraplp.Solver.CreateSolver('GLOP')  # GLOP es un solver LP
+
+# Datos del problema
+coste = [
+    [131, 218, 266, 120],  # Planta 1
+    [250, 116, 263, 278],  # Planta 2
+    [178, 132, 122, 180]   # Planta 3
+]
+
+capacidad = [450, 500, 300]      # Capacidades de las plantas
+demanda = [450, 200, 300, 300]   # Demandas de las regiones
+
+
+------------ PROBLEMA 2: ------------ 
+
+
+from ortools.linear_solver import pywraplp
+
+# Crear solver
+solver = pywraplp.Solver.CreateSolver('GLOP')  # GLOP es un solver LP
+
+
+# Datos de entrada
+empleados = ["Ana", "Iván", "Juan", "Susana"]
+tareas = ["Textos", "Gráficos", "Packs", "Inscripciones"]
+
+tiempo = [
+    [35, 41, 27, 40],  # Ana
+    [47, 45, 32, 51],  # Iván
+    [39, 56, 36, 43],  # Juan
+    [32, 51, 25, 46]   # Susana
+]
+
+sueldo = [14, 12, 13, 15]
