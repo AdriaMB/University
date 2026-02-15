@@ -40,8 +40,8 @@ MAX = XA_E + XB_E + XC_E;
 
 [COMP1_N] 0.80*XA_N + 0.45*XB_N + 0.30*XC_N >= 0.50*(XA_N + XB_N + XC_N);
 [COMP2_N] 0.10*XA_N + 0.30*XB_N + 0.40*XC_N <= 0.30*(XA_N + XB_N + XC_N);
-[COMP3_N] 0.05*XA_N + 0.20*XB_N + 0.25*XC_N >= 0.15*(XA_N + XB_N + XC_N);
+[COMP3_N] 0.05*XA_N + 0.20*XB_N + 0.25*XC_N <= 0.15*(XA_N + XB_N + XC_N);
 
-[COMP1_E] 0.80*XA_E + 0.45*XB_E + 0.30*XC_E >= 0.40*(XA_E + XB_E + XC_E);
-[COMP2_E] 0.10*XA_E + 0.30*XB_E + 0.40*XC_E <= 0.35*(XA_E + XB_E + XC_E);
+[COMP1_E] 0.80*XA_E + 0.45*XB_E + 0.30*XC_E <= 0.40*(XA_E + XB_E + XC_E);
+[COMP2_E] 0.10*XA_E + 0.30*XB_E + 0.40*XC_E >= 0.35*(XA_E + XB_E + XC_E);
 [COMP3_E] 0.05*XA_E + 0.20*XB_E + 0.25*XC_E >= 0.20*(XA_E + XB_E + XC_E);
