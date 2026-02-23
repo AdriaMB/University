@@ -40,25 +40,28 @@ class Translator():
         vowels = "aeiouyAEIOUY"
 
         new_word = word
+        # The word contains a number or other non-alphabetic character
         if not word[0].isalpha():
-            # The word starts by a number or a punctuation sign
             return new_word 
+
+        # else, if the word starts by a vowel...
         elif word[0] in vowels:
             new_word += "YAY" if word.isupper() else "yay" # OLA -> OLAYAY    ola -> olayay    Ola -> Olayay
+        # else, the word stars by a consonant
         else:
-            first_vowel = -1
+            first_vowel = null    # default index (En python los índices pueden ser negativos sin que eso rompa el programa: simplemente comienza por atrás... Por esta razón, mejor dejar first_vowel como null y no como un valor negativo)
             for i in word:
                 if i in vowels:
-                    first_vowel = word.find(i)
+                    first_vowel = word.find(i)      # Store the index of the first vowel
                     break
-            if first_vowel >= 0:
+            if first_vowel != 0:                    # Technically, is always going to be different to 0. If there was a vowel in the first position, we wouldn't be here...'
                 new_word = word[first_vowel:] + word[:first_vowel] + "ay"
                 new_word = new_word.lower()
             else:
                 new_word = word
 
-        if(word.isupper()): new_word = new_word.upper()
-        elif(capitalize): new_word = new_word.lower().capitalize()
+        if(word.isupper()): new_word = new_word.upper()             # If the original word was UPPER, convert it
+        elif(capitalize): new_word = new_word.lower().capitalize()  # If the original word had the first letter in capital form, convert it
 
         return new_word
 
@@ -76,7 +79,8 @@ class Translator():
         """
 
         new_sentence = "" # SUSTITUIR ESTA PARTE
-        for word in sentence.split(" "):
+        for word in sentence.split(" "):                        # We separate the words of the line by the " "
+                                                                # Now, we filter the punctuation marks that the resulting words might have
             #If the word ends in a comma, keep it for later
             if word[len(word)-1] == ",":
                 word = word.replace(",", "")
@@ -89,15 +93,23 @@ class Translator():
             elif word[len(word)-1] == ";":
                 word = word.replace(";", "")
                 new_sentence += self.translate_word(word) + "; "
+            #
+            elif word[len(word)-1] == "?":
+                word = word.replace("?", "")
+                new_sentence += self.translate_word(word) + "? "
+            #
+            elif word[len(word)-1] == "!":
+                word = word.replace("!", "")
+                new_sentence += self.translate_word(word) + "! "
             # Else, if the word doesn't have any punctiation point...
             else:
                 new_sentence += self.translate_word(word) + " "
         
         return new_sentence
 
-
-
-
+        """ In this commented version, the punctuation symbols are handled in the translate_word method """
+        # aux = [self.translate_word(word) for word in sentence .split(' ')]
+        # new_sentence = ' '.join(aux)
 
 
 
@@ -111,17 +123,29 @@ class Translator():
         
         if not isfile(filename):
             print(f'{filename} no existe o no es un nombre de fichero', file=sys.stderr)
-        else:
-            with (
-                open(filename, "r", encoding="utf-8") as f,
-                open("new_file.txt", "w", encoding="utf-8") as new_file  
-            ):
-                for line in f.readlines():
-                    print(line)
-                    aux = self.translate_sentence(line.replace("\n", "")) 
-                    new_file.write(aux + "\n")
+
+        with (
+            open(filename, "r", encoding="utf-8") as f,
+            open("new_file.txt", "w", encoding="utf-8") as new_file
+        ):
+            for line in f.readlines():
+                print(line)
+                aux = self.translate_sentence(line.replace("\n", ""))
+                new_file.write(aux + "\n")
                 
-            
+        """
+        with open(filename, 'r') as original:
+            filename_arr = filename.split('.')
+            new_filename = filename_arr[0] + '_latin' + '.' + filename_arr[1]
+
+            # Empty the file in case it already exists
+            open(new_filename, 'w').close()
+
+            with open(new_filename, 'a') as newfile:
+                for line in original:
+                    newfile.write(self.translate_sentence(line.strip()) + '\n')
+
+        """
 
 
 
