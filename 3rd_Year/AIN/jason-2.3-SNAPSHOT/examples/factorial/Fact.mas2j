@@ -1,0 +1,8 @@
+MAS factorial{
+    infrastructure: Centralised
+
+    environment: FactorialEnv
+
+    agents: ex2_1;
+
+}

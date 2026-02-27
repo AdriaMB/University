@@ -1,0 +1,129 @@
+!VARIABLES
+Pij (produccion del producto i del mes j): P11 P12 P13 P14 P15 P16      P21 P22 P23 P24 P25 P26     P31 P32 P33 P34 P35 P36
+Iij (inventario del producto i del mes j): I11 I12 I13 I14 I15 I16      I21 I22 I23 I24 I25 I26     I31 I32 I33 I34 I35 I36
+Vij (ventas del producto i del mes j):	  V11 V12 V13 V14 V15 V16      V21 V22 V23 V24 V25 V26     V31 V32 V33 V34 V35 V36
+
+j = {1,2,3,4,5,6}
+i = {1,2,3}
+;
+
+
+!F.O.;
+MAX = 10*(V11+ V12+ V13+ V14+ V15+ V16) + 
+      6* (V21+ V22+ V23+ V24+ V25+ V26) + 
+      8* (V31+ V32+ V33+ V34+ V35+ V36) - 
+      0.5*(I11+ I12+ I13+ I14+ I15+ I16+ I21+ I22+ I23+ I24+ I25+ I26+ I31+ I32+ I33+ I34+ I35+ I36);
+
+
+
+!CAPACIDAD DE PRODUCCION Y DISPONIBILIDAD DE MAQUINA;
+[ENERO_CORTADORA]  0.50*P11 + 0.70*P21           <= 384*3;
+[ENERO_FRESADORAV] 0.10*P11 + 0.20*P21           <= 384*2;
+[ENERO_FRESADORAH] 0.20*P11 +            0.80*P31<= 384*3;
+[ENERO_TALADRO]    0.05*P11 + 0.03*P21           <= 384*1;
+[ENERO_ALISADORA]                      + 0.01*P31<= 384*1;
+
+[FEBRE_CORTADORA]  0.50*P12 + 0.70*P22           <= 384*4;
+[FEBRE_FRESADORAV] 0.10*P12 + 0.20*P22           <= 384*2;
+[FEBRE_FRESADORAH] 0.20*P12 +            0.80*P32<= 384*1;
+[FEBRE_TALADRO]    0.05*P12 + 0.03*P22           <= 384*1;
+[FEBRE_ALISADORA]                      + 0.01*P32<= 384*1;
+
+[MARZO_CORTADORA]  0.50*P13 + 0.70*P23           <= 384*4;
+[MARZO_FRESADORAV] 0.10*P13 + 0.20*P23           <= 384*2;
+[MARZO_FRESADORAH] 0.20*P13 +            0.80*P33<= 384*3;
+[MARZO_TALADRO]    0.05*P13 + 0.03*P23           <= 384*0;
+[MARZO_ALISADORA]                      + 0.01*P33<= 384*1;
+
+[ABRIL_CORTADORA]  0.50*P14 + 0.70*P24           <= 384*4;
+[ABRIL_FRESADORAV] 0.10*P14 + 0.20*P24           <= 384*1;
+[ABRIL_FRESADORAH] 0.20*P14 +            0.80*P34<= 384*3;
+[ABRIL_TALADRO]    0.05*P14 + 0.03*P24           <= 384*1;
+[ABRIL_ALISADORA]                      + 0.01*P34<= 384*1;
+
+[MAYO_CORTADORA]  0.50*P15 + 0.70*P25           <= 384*3;
+[MAYO_FRESADORAV] 0.10*P15 + 0.20*P25           <= 384*1;
+[MAYO_FRESADORAH] 0.20*P15 +            0.80*P35<= 384*3;
+[MAYO_TALADRO]    0.05*P15 + 0.03*P25           <= 384*1;
+[MAYO_ALISADORA]                      + 0.01*P35<= 384*1;
+
+[JUNIO_CORTADORA]  0.50*P16 + 0.70*P26           <= 384*4;
+[JUNIO_FRESADORAV] 0.10*P16 + 0.20*P26           <= 384*2;
+[JUNIO_FRESADORAH] 0.20*P16 +            0.80*P36<= 384*1;
+[JUNIO_TALADRO]    0.05*P16 + 0.03*P26           <= 384*1;
+[JUNIO_ALISADORA]                      + 0.01*P36<= 384*0;
+
+
+
+!RESTRICCIONES DE EQUILIBRIO;
+[MES_ENERO_P01] V11 + I11 = P11;
+[MES_ENERO_P02] V21 + I21 = P21;
+[MES_ENERO_P03] V31 + I31 = P31;
+
+[MES_FEBRERO_P01] V12 + I12 = P12 + I11;
+[MES_FEBRERO_P02] V22 + I22 = P22 + I21;
+[MES_FEBRERO_P03] V32 + I32 = P32 + I31;
+
+[MES_MARZO_P01] V13 + I13 = P13 + I12;
+[MES_MARZO_P02] V23 + I23 = P23 + I22;
+[MES_MARZO_P03] V33 + I33 = P33 + I32;
+
+[MES_ABRIL_P01] V14 + I14 = P14 + I13;
+[MES_ABRIL_P02] V24 + I24 = P24 + I23;
+[MES_ABRIL_P03] V34 + I34 = P34 + I33;
+
+[MES_MAYO_P01] V15 + I15 = P15 + I14;
+[MES_MAYO_P02] V25 + I25 = P25 + I24;
+[MES_MAYO_P03] V35 + I35 = P35 + I34;
+
+[MES_JUNIO_P01] V16 + I16 = P16 + I15;
+[MES_JUNIO_P02] V26 + I26 = P26 + I25;
+[MES_JUNIO_P03] V36 + I36 = P36 + I35;
+
+
+
+
+!CAPACIDAD DE ALMACENAMIENTO;
+@BND(0, I11, 100);
+@BND(0, I21, 100);
+@BND(0, I31, 100);
+@BND(0, I12, 100);
+@BND(0, I22, 100);
+@BND(0, I33, 100);
+@BND(0, I14, 100);
+@BND(0, I24, 100);
+@BND(0, I34, 100);
+@BND(0, I15, 100);
+@BND(0, I25, 100);
+@BND(0, I35, 100);
+I16 = 50;
+I26 = 50;
+I36 = 50;
+
+
+
+
+!LIMITACIONES DE MERCADO;
+@BND(0, V11, 500);
+@BND(0, V21, 1000);
+@BND(0, V31, 300);
+
+@BND(0, V12, 600);
+@BND(0, V22, 500);
+@BND(0, V32, 200);
+
+@BND(0, V13, 300);
+@BND(0, V23, 600);
+@BND(0, V33, 0);
+
+@BND(0, V14, 200);
+@BND(0, V24, 300);
+@BND(0, V34, 400);
+
+@BND(0, V15, 0);
+@BND(0, V25, 100);
+@BND(0, V35, 500);
+
+@BND(0, V16, 500);
+@BND(0, V26, 500);
+@BND(0, V36, 100);
