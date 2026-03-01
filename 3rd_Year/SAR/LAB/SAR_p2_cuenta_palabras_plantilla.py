@@ -33,13 +33,23 @@ def get_ngrams(l, n, add_marks=False):
 
 
 
+
+
 class WordCounter:
 
     def __init__(self):
         """
-           Constructor de la clase WordCounter
+            Constructor de la clase WordCounter
         """
         self.clean_re = re.compile(r'\W+')          # Había que poner r'\W+'
+
+
+
+
+
+
+
+
 
 
     """
@@ -51,7 +61,7 @@ class WordCounter:
             nº caracteres distintos:                len(sats['symbol'].keys())
     """
 
-    def write_stats_text(self, filename, stats, use_stopwords, full):
+    def write_stats_text(self, filename, source_file, lower, stats, use_stopwords, bigrams, full):
         """
         Este mÃ©todo escribe en texto plano las estadÃ­sticas de un fichero
             
@@ -64,10 +74,129 @@ class WordCounter:
         :return: None
         """
 
+        total_symbols  = 0
+        for i in stats['symbol'].keys():
+            total_symbols += stats['symbol'][i]
+
+        entropy = round(stats['entropy'], 4)
+        redundancy = round(stats['redundancy']*100, 2)
+
+
+        def return_top_X(X)-> dict:
+            top_X = [(stats[X][k], k ) for k in stats[X].keys()]
+            top_X.sort()
+
+            left = right = -1   # el elemento más a la derecha
+            limit = -len(top_X) # son negativos porque al moverse a la izquierda deberemos movernos mientras seamos >= a ellos
+
+            top_X_dict = {}
+
+
+            while left >= limit:
+                right = left
+                aux_n = top_X[left][0] # take the number. The list is ordered, therefore the number are too
+                
+                while left >= limit and top_X[left][0] == aux_n:
+                    left -= 1   # me muevo a la izquierda
+                
+                # stops when top_words[left][0] has a different number. Between left and right, all tuples have the same number and are ordered from a...z
+                for i in range(left+1, right+1, +1):
+                    #print(f"{top_X[i][1]}        \t{i}")
+                    top_X_dict[top_X[i][1]] = top_X[i][0]
+                    if not full and len(top_X_dict) == 20:
+                        return top_X_dict
+            return top_X_dict
+        
+
+
+        def return_alphabetical_order(X) -> dict:
+            top_X = [(k, stats[X][k]) for k in stats[X].keys()]
+            top_X.sort()
+
+            alpha_X_dict = {}
+
+            for i in range(0, len(top_X)):
+                alpha_X_dict[top_X[i][0]] = top_X[i][1]
+                if not full and len(alpha_X_dict) == 20:
+                    return alpha_X_dict
+            return alpha_X_dict
+
+
+        # Words dictionaries
+        words_alphabetic_order = return_alphabetical_order('word')
+        words_frequency_order  = return_top_X('word')
+
+        # Symbols dictionaries
+        symbols_alphabetic_order = return_alphabetical_order('symbol')
+        symbols_frequency_order  = return_top_X('symbol')
+
+        # Word pairs dictionaries
+        word_pairs_alphabetic_order = return_alphabetical_order('biword')
+        word_pairs_frequency_order  = return_top_X('biword')
+
+        # Symbol pairs dictionaries
+        symbol_pairs_alphabetic_order = return_alphabetical_order('bisymbol')
+        symbol_pairs_frequency_order  = return_top_X('bisymbol')
+
+
         with open(filename, 'w', encoding='utf-8') as fh:
 
-            # COMPLETAR
-            pass
+            fh.write(f"Lines: {stats['nlines']}\n")
+            fh.write(f"Number of words (including stopwords): {stats['nwords']}\n")
+            fh.write(f"Vocabulary size: {len(stats['word'].keys())}\n")
+            fh.write(f"Number of symbols: {total_symbols}\n")
+            fh.write(f"Number of different symbols: {len(stats['symbol'].keys())}\n")
+            if stats['entropy']:
+                fh.write(f"Shannon entropy: {entropy} bits/symbol\n")
+                fh.write(f"Redundancy: {redundancy}%\n")
+
+            # words
+            fh.write(f"Words (alphabetical order):\n")
+            for i in words_alphabetic_order.keys():
+                fh.write(f"\t{i}:{words_alphabetic_order[i]}\n")
+            fh.write(f"Words (by frequency):\n")
+            for i in words_frequency_order.keys():
+                fh.write(f"\t{i}:{words_frequency_order[i]}\n")
+
+            # symbols
+            fh.write(f"Symbols (alphabetical order):\n")
+            for i in symbols_alphabetic_order.keys():
+                fh.write(f"\t{i}:{symbols_alphabetic_order[i]}\n")
+            fh.write(f"Symbols (by frequency):\n")
+            for i in symbols_frequency_order.keys():
+                fh.write(f"\t{i}:{symbols_frequency_order[i]}\n")
+
+            if bigrams:
+                #word pairs
+                fh.write(f"Word pairs (alphabetical order):\n")
+                for i in word_pairs_alphabetic_order.keys():
+                    fh.write(f"\t{i}:{word_pairs_alphabetic_order[i]}\n")
+                fh.write(f"Word pairs (by frequency):\n")
+                for i in word_pairs_frequency_order.keys():
+                    fh.write(f"\t{i}:{word_pairs_frequency_order[i]}\n")
+
+                # symbol pairs
+                fh.write(f"Symbols pairs(alphabetical order):\n")
+                for i in symbol_pairs_alphabetic_order.keys():
+                    fh.write(f"\t{i}:{symbol_pairs_alphabetic_order[i]}\n")
+                fh.write(f"Symbols pairs(by frequency):\n")
+                for i in symbol_pairs_frequency_order.keys():
+                    fh.write(f"\t{i}:{symbol_pairs_frequency_order[i]}\n")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -88,24 +217,74 @@ class WordCounter:
     """
 
     
-    def write_stats_json(self, filename, source_file, stats, lower, use_stopwords, full):
-
-        total_symbols  = 0
-        for i in stats['symbol'].keys():
-            total_symbols += stats['symbol'][i]
-
+    def write_stats_json(self, filename, source_file, lower, stats, use_stopwords, bigrams, full):
         """
         Este mÃ©todo escribe en formato JSON las estadÃ­sticas de un fichero
             
         :param 
             filename: el nombre del fichero destino.
             source_file: el nombre del fichero fuente.
+            lower: booleano, si está todo en minúsculas
             stats: las estadÃ­sticas del texto.
             use_stopwords: booleano, si se han utilizado stopwords
+            bigrams: booleano, si se ha pedido análisis de bigramas
             full: boolean, si se deben mostrar las stats completas
 
         :return: None
         """
+
+        total_symbols  = 0
+        for i in stats['symbol'].keys():
+            total_symbols += stats['symbol'][i]
+
+        #### Función de orden genérica
+        # sort, cuando ordenamos una lista de tuplas, primero ordena respecto al primer elemento y luego, en
+        # caso de coincidencia, ordena alfabéticamente respecto al segundo elemento
+        
+        # esta funcion se movera del elemento más a la derecha a la izquierda. Utilizará pointers negativos
+        def return_top_X(X)-> dict:
+            top_X = [(stats[X][k], k ) for k in stats[X].keys()]
+            top_X.sort()
+            print()
+            print()
+            print(top_X)
+
+            left = right = -1   # el elemento más a la derecha
+            limit = -len(top_X) # son negativos porque al moverse a la izquierda deberemos movernos mientras seamos >= a ellos
+
+            top_X_dict = {}
+
+
+            while left >= limit:
+                right = left
+                aux_n = top_X[left][0] # take the number. The list is ordered, therefore the number are too
+                
+                while left >= limit and top_X[left][0] == aux_n:
+                    left -= 1   # me muevo a la izquierda
+                
+                # stops when top_words[left][0] has a different number. Between left and right, all tuples have the same number and are ordered from a...z
+                for i in range(left+1, right+1, +1):
+                    print(f"{top_X[i][1]}        \t{i}")
+                    top_X_dict[top_X[i][1]] = top_X[i][0]
+                    if not full and len(top_X_dict) == 20:
+                        return top_X_dict
+
+            
+            return top_X_dict
+
+        ####### Top_words 
+        top_words_dict = return_top_X('word')
+        
+
+        ######  Top symbols
+        top_symbols_dict = return_top_X('symbol')
+
+        ######  Top word pairs
+        top_word_pairs_dict = return_top_X('biword')
+
+        ######  Top symbol pairs
+        top_symbol_pairs_dict = return_top_X('bisymbol')
+
 
         js = {
             "metadata": {
@@ -127,19 +306,27 @@ class WordCounter:
 
             },
             "entropy_analysis":{
-                "shannon_entropy": 0,
-                "redundancy": 0
+                "shannon_entropy": stats['entropy'],
+                "redundancy": stats['redundancy']
 
             },
-            "top_words": "a",
-            "top_symbols":"a"
+            "top_words": top_words_dict,
+            "top_symbols": top_symbols_dict
 
         }
 
+        if bigrams:
+            js['top_word_pairs'] = top_word_pairs_dict
+            js['top_symbol_pairs'] = top_symbol_pairs_dict
         # COMPLETAR
 
         with open(filename, 'w', encoding='utf-8') as fh:
             json.dump(js, fh, indent=4, ensure_ascii=False)
+
+
+
+
+
 
 
 
@@ -188,6 +375,8 @@ class WordCounter:
             stats['entropy'] = None
             stats['redundancy'] = None
 
+        
+        ############### MÉTRICAS BÁSICAS Y DISTRIBUCIONES DE FRECUENCIA ##############33
         """
             nº lineas:                              stats['nlines']
             nº palabras totales:                    stats['nwords']
@@ -195,20 +384,36 @@ class WordCounter:
             vocabulario (palabras distintas):       len(stats['words'].keys())
             nº caracteres totales:                  for i in stats['symbol'].keys(): += stats['symbol'][i]
             nº caracteres distintos:                len(sats['symbol'].keys())
-
         """
-        def add_word(word):
-            if word in stats['word'].keys():
-                stats['word'][word] += 1       # add to the dictionary the word
-            else:
-                stats['word'][word] = 1        # creates a dict. entry 
 
-        def add_symbols(symbol):
-            if symbol in stats['symbol'].keys():
-                stats['symbol'][symbol] += 1
+        # generic adder
+        def add_X(X_name, X):
+            if X in stats[X_name].keys():
+                stats[X_name][X] += 1       # add to the dictionary the word
             else:
-                stats['symbol'][symbol] = 1
+                stats[X_name][X] = 1        # creates a dict. entry 
 
+
+        def func_bigram_words(line):
+            line = "$ " + line + " $"
+            line = re.split(r'\s+', line.strip())
+            
+            for i in range(len(line)-1):
+                
+                bigram = line[i] + " " + line[i+1]
+
+                add_X('biword', bigram)
+
+                if line[i+1] == "$":
+                    # we have reached the end
+                    break                   
+
+
+        def func_bigram_symbols(word):
+            for i in range(len(word)-1):
+                bigram = word[i] + word[i+1]
+
+                add_X('bisymbol', bigram)
 
         # ANALYSIS 
         with open(filename, 'r') as file:
@@ -220,6 +425,9 @@ class WordCounter:
                 if lower:
                     line = line.lower()               # if we have to put the line in lower characters
 
+                if bigrams:
+                    func_bigram_words(line)
+
                 line = re.split(r'\s+', line.strip()) # line will be a list of words
 
                 for word in line:
@@ -229,11 +437,39 @@ class WordCounter:
                         pass    # We pass to the next word
                     # All operations forward will not count the stopwords
                     stats['nwords_no_stopwords'] += 1
-                    add_word(word)
+                    add_X('word', word)
+
+                    if bigrams:
+                        func_bigram_symbols(word)
 
                     for symbol in word:
-                        add_symbols(symbol)
+                        add_X('symbol', symbol)
 
+        ################################ ANÁLISIS DE BIGRAMAS ###################
+
+        
+
+        ################################ ENTROPÍA DE SHANNON  ###################
+        total_symbols  = 0
+        for i in stats['symbol'].keys():
+            total_symbols += stats['symbol'][i]
+        
+        
+        if entropy:
+            stats['entropy'] = 0.0
+            for i in stats['symbol'].keys():
+                P_xi = stats['symbol'][i] / total_symbols
+                stats['entropy'] += P_xi * math.log2(P_xi)
+            stats['entropy'] *= -1
+
+        ################################ REDUNDANCIA ############################
+            H_max = math.log2(len(stats['symbol'].keys()))
+
+            stats['redundancy'] = 1 - (stats['entropy'] / H_max )
+
+
+
+        ################################ NOMBRAMIENTO DEL ARCHIVO ################
         # New filename: old _ options _ .txt/.json
         options_str = ""
         options_str += 'l' if lower else ''
@@ -248,10 +484,10 @@ class WordCounter:
 
         if use_json:
             new_filename += "_stats.json"
-            self.write_stats_json(new_filename, filename, lower, stats, stopwordsfile is not None, full)
+            self.write_stats_json(new_filename, filename, lower, stats, stopwordsfile is not None, bigrams, full)
         else:
             new_filename += "_stats.txt"
-            self.write_stats_text(new_filename, stats, stopwordsfile is not None, full)
+            self.write_stats_text(new_filename, filename, lower, stats, stopwordsfile is not None, bigrams, full)
 
 
 
@@ -316,12 +552,12 @@ if __name__ == "__main__":
     args = parser.parse_args()
     wc = WordCounter()
     wc.compute_files(args.file,
-                     lower=args.lower,
-                     stopwordsfile=args.stopwords,
-                     bigrams=args.bigram,
-                     full=args.full,
-                     entropy=args.entropy,
-                     use_json=args.json)
+                    lower=args.lower,
+                    stopwordsfile=args.stopwords,
+                    bigrams=args.bigram,
+                    full=args.full,
+                    entropy=args.entropy,
+                    use_json=args.json)
     
 
 

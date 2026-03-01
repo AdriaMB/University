@@ -1,0 +1,71 @@
+{
+    "metadata": {
+        "source_file": "spam.txt",
+        "options": {
+            "lower": true,
+            "stopwords": false,
+            "bigrams": false,
+            "entropy": true
+        }
+    },
+    "basics_stats": {
+        "lines": 11,
+        "words": 77,
+        "vocab_size": 22,
+        "symbols": 324,
+        "unique_symbols": 23
+    },
+    "entropy_analysis": {
+        "shannon_entropy": 3.811382500018934,
+        "redundancy": 0.15743775877425015
+    },
+    "top_words": {
+        "spam": 27,
+        "and": 12,
+        "egg": 9,
+        "bacon": 6,
+        "sausage": 4,
+        "a": 2,
+        "with": 2,
+        "aux": 1,
+        "baked": 1,
+        "beans": 1,
+        "brandy": 1,
+        "crevettes": 1,
+        "fried": 1,
+        "garnished": 1,
+        "lobster": 1,
+        "mornay": 1,
+        "on": 1,
+        "pate": 1,
+        "sauce": 1,
+        "thermidor": 1,
+        "top": 1,
+        "truffle": 1
+    },
+    "top_symbols": {
+        "a": 63,
+        "s": 40,
+        "m": 29,
+        "p": 29,
+        "e": 25,
+        "g": 23,
+        "n": 23,
+        "d": 17,
+        "o": 11,
+        "b": 10,
+        "r": 9,
+        "t": 9,
+        "c": 8,
+        "u": 7,
+        "i": 5,
+        "h": 4,
+        "f": 3,
+        "l": 2,
+        "w": 2,
+        "y": 2,
+        "k": 1,
+        "v": 1,
+        "x": 1
+    }
+}
