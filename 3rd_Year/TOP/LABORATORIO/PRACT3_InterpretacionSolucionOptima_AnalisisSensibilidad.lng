@@ -1,0 +1,19 @@
+!
+CONCEPTOS QUE PUEDEN SALIR EN EL EXAMEN:
+Pr3:
+
+
+
+;
+
+!
+VARIABLES:  A, B, C (nº de toneladas de embalaje de tipo i)    i = A,B,C
+;
+
+!F.O: MAXIMIZAR EL BENEFICIO (miles de euros);
+MAX = A*4 + B*6 + C*8;
+
+!RESTRICCIONES;
+[Produccion_minima_A_B] A + B >= 10;
+[Carton] A + B + C <= 50;
+[Tiempo] A*20 + B*30 + C*32 <= 1000;
