@@ -8,7 +8,7 @@
             "entropy": true
         }
     },
-    "basics_stats": {
+    "basic_stats": {
         "lines": 11,
         "words": 77,
         "vocab_size": 22,

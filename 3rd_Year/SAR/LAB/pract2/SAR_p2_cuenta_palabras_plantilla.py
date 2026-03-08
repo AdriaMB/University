@@ -61,7 +61,7 @@ class WordCounter:
             nº caracteres distintos:                len(sats['symbol'].keys())
     """
 
-    def write_stats_text(self, filename, source_file, lower, stats, use_stopwords, bigrams, full):
+    def write_stats_text(self, filename, source_file, lower, stats, use_stopwords, bigrams, entropy, full):
         """
         Este mÃ©todo escribe en texto plano las estadÃ­sticas de un fichero
             
@@ -78,8 +78,10 @@ class WordCounter:
         for i in stats['symbol'].keys():
             total_symbols += stats['symbol'][i]
 
-        entropy = round(stats['entropy'], 4)
-        redundancy = round(stats['redundancy']*100, 2)
+        if entropy:
+            entropy = round(stats['entropy'], 4)
+            redundancy = round(stats['redundancy']*100, 2)
+
 
 
         def return_top_X(X)-> dict:
@@ -131,68 +133,61 @@ class WordCounter:
         symbols_frequency_order  = return_top_X('symbol')
 
         # Word pairs dictionaries
-        word_pairs_alphabetic_order = return_alphabetical_order('biword')
-        word_pairs_frequency_order  = return_top_X('biword')
+        if bigrams:
+            word_pairs_alphabetic_order = return_alphabetical_order('biword')
+            word_pairs_frequency_order  = return_top_X('biword')
 
         # Symbol pairs dictionaries
-        symbol_pairs_alphabetic_order = return_alphabetical_order('bisymbol')
-        symbol_pairs_frequency_order  = return_top_X('bisymbol')
+            symbol_pairs_alphabetic_order = return_alphabetical_order('bisymbol')
+            symbol_pairs_frequency_order  = return_top_X('bisymbol')
 
 
         with open(filename, 'w', encoding='utf-8') as fh:
 
             fh.write(f"Lines: {stats['nlines']}\n")
             fh.write(f"Number of words (including stopwords): {stats['nwords']}\n")
+            if use_stopwords:
+                fh.write(f"Number of words (without stopwords): {stats['nwords_no_stopwords']}\n")
+
             fh.write(f"Vocabulary size: {len(stats['word'].keys())}\n")
             fh.write(f"Number of symbols: {total_symbols}\n")
             fh.write(f"Number of different symbols: {len(stats['symbol'].keys())}\n")
-            if stats['entropy']:
-                fh.write(f"Shannon entropy: {entropy} bits/symbol\n")
-                fh.write(f"Redundancy: {redundancy}%\n")
+            if entropy:
+                fh.write(f"Shannon entropy: {entropy:.4f} bits/symbol\n")
+                fh.write(f"Redundancy: {redundancy:.2f}%\n")
 
             # words
             fh.write(f"Words (alphabetical order):\n")
             for i in words_alphabetic_order.keys():
-                fh.write(f"\t{i}:{words_alphabetic_order[i]}\n")
+                fh.write(f"\t{i}: {words_alphabetic_order[i]}\n")
             fh.write(f"Words (by frequency):\n")
             for i in words_frequency_order.keys():
-                fh.write(f"\t{i}:{words_frequency_order[i]}\n")
+                fh.write(f"\t{i}: {words_frequency_order[i]}\n")
 
             # symbols
             fh.write(f"Symbols (alphabetical order):\n")
             for i in symbols_alphabetic_order.keys():
-                fh.write(f"\t{i}:{symbols_alphabetic_order[i]}\n")
+                fh.write(f"\t{i}: {symbols_alphabetic_order[i]}\n")
             fh.write(f"Symbols (by frequency):\n")
             for i in symbols_frequency_order.keys():
-                fh.write(f"\t{i}:{symbols_frequency_order[i]}\n")
+                fh.write(f"\t{i}: {symbols_frequency_order[i]}\n")
 
             if bigrams:
                 #word pairs
                 fh.write(f"Word pairs (alphabetical order):\n")
                 for i in word_pairs_alphabetic_order.keys():
-                    fh.write(f"\t{i}:{word_pairs_alphabetic_order[i]}\n")
+                    fh.write(f"\t{i}: {word_pairs_alphabetic_order[i]}\n")
                 fh.write(f"Word pairs (by frequency):\n")
                 for i in word_pairs_frequency_order.keys():
-                    fh.write(f"\t{i}:{word_pairs_frequency_order[i]}\n")
+                    fh.write(f"\t{i}: {word_pairs_frequency_order[i]}\n")
 
                 # symbol pairs
-                fh.write(f"Symbols pairs(alphabetical order):\n")
+                fh.write(f"Symbol pairs (alphabetical order):\n")
                 for i in symbol_pairs_alphabetic_order.keys():
-                    fh.write(f"\t{i}:{symbol_pairs_alphabetic_order[i]}\n")
-                fh.write(f"Symbols pairs(by frequency):\n")
+                    fh.write(f"\t{i}: {symbol_pairs_alphabetic_order[i]}\n")
+                fh.write(f"Symbol pairs (by frequency):\n")
                 for i in symbol_pairs_frequency_order.keys():
-                    fh.write(f"\t{i}:{symbol_pairs_frequency_order[i]}\n")
-
-
-
-
-
-
-
-
-
-
-
+                    fh.write(f"\t{i}: {symbol_pairs_frequency_order[i]}\n")
 
 
 
@@ -217,7 +212,7 @@ class WordCounter:
     """
 
     
-    def write_stats_json(self, filename, source_file, lower, stats, use_stopwords, bigrams, full):
+    def write_stats_json(self, filename, source_file, lower, stats, use_stopwords, bigrams, entropy, full):
         """
         Este mÃ©todo escribe en formato JSON las estadÃ­sticas de un fichero
             
@@ -245,9 +240,7 @@ class WordCounter:
         def return_top_X(X)-> dict:
             top_X = [(stats[X][k], k ) for k in stats[X].keys()]
             top_X.sort()
-            print()
-            print()
-            print(top_X)
+
 
             left = right = -1   # el elemento más a la derecha
             limit = -len(top_X) # son negativos porque al moverse a la izquierda deberemos movernos mientras seamos >= a ellos
@@ -264,7 +257,7 @@ class WordCounter:
                 
                 # stops when top_words[left][0] has a different number. Between left and right, all tuples have the same number and are ordered from a...z
                 for i in range(left+1, right+1, +1):
-                    print(f"{top_X[i][1]}        \t{i}")
+                    #print(f"{top_X[i][1]}        \t{i}")
                     top_X_dict[top_X[i][1]] = top_X[i][0]
                     if not full and len(top_X_dict) == 20:
                         return top_X_dict
@@ -280,10 +273,11 @@ class WordCounter:
         top_symbols_dict = return_top_X('symbol')
 
         ######  Top word pairs
-        top_word_pairs_dict = return_top_X('biword')
+        if bigrams: 
+            top_word_pairs_dict = return_top_X('biword')
 
         ######  Top symbol pairs
-        top_symbol_pairs_dict = return_top_X('bisymbol')
+            top_symbol_pairs_dict = return_top_X('bisymbol')
 
 
         js = {
@@ -297,28 +291,34 @@ class WordCounter:
                 },
             
             },
-            "basics_stats":{
+            "basic_stats":{
                 "lines": stats['nlines'],
-                "words": stats['nwords'],
-                "vocab_size":  len(stats['word'].keys()),
-                "symbols": total_symbols,
-                "unique_symbols": len(stats['symbol'].keys())
-
+                "words": stats['nwords']
             },
-            "entropy_analysis":{
-                "shannon_entropy": stats['entropy'],
-                "redundancy": stats['redundancy']
-
-            },
-            "top_words": top_words_dict,
-            "top_symbols": top_symbols_dict
-
         }
 
+        if use_stopwords:
+            js["basic_stats"]["words_without_stopwords"] = stats['nwords_no_stopwords']
+        
+        js["basic_stats"]["vocab_size"] = len(stats['word'].keys())
+        js["basic_stats"]["symbols"] = total_symbols
+        js["basic_stats"]["unique_symbols"] = len(stats['symbol'].keys())
+
+
+        # if we activate the option of entropy, we display that data. Else, we dont
+        if entropy:
+            js['entropy_analysis'] = {
+                "shannon_entropy": stats['entropy'],
+                "redundancy": stats['redundancy']
+            }
+        # we are always going to display this part. We want to display it in certain order, though
+        js['top_words'] = top_words_dict
+        js['top_symbols'] = top_symbols_dict
+
+        # if we activate the option of bigrams, we display that data. Else, we dont
         if bigrams:
             js['top_word_pairs'] = top_word_pairs_dict
             js['top_symbol_pairs'] = top_symbol_pairs_dict
-        # COMPLETAR
 
         with open(filename, 'w', encoding='utf-8') as fh:
             json.dump(js, fh, indent=4, ensure_ascii=False)
@@ -394,56 +394,53 @@ class WordCounter:
                 stats[X_name][X] = 1        # creates a dict. entry 
 
 
-        def func_bigram_words(line):
-            line = "$ " + line + " $"
-            line = re.split(r'\s+', line.strip())
-            
-            for i in range(len(line)-1):
-                
-                bigram = line[i] + " " + line[i+1]
-
-                add_X('biword', bigram)
-
-                if line[i+1] == "$":
-                    # we have reached the end
-                    break                   
-
-
-        def func_bigram_symbols(word):
-            for i in range(len(word)-1):
-                bigram = word[i] + word[i+1]
-
-                add_X('bisymbol', bigram)
-
         # ANALYSIS 
         with open(filename, 'r') as file:
             for line in file:
                 stats['nlines'] += 1
 
-                line = self.clean_re.sub(' ', line)
-
                 if lower:
                     line = line.lower()               # if we have to put the line in lower characters
 
-                if bigrams:
-                    func_bigram_words(line)
+                line = self.clean_re.sub(' ', line)
+ 
+                line = line.split()# line will be a list of words
 
-                line = re.split(r'\s+', line.strip()) # line will be a list of words
+                if not line or line == ['']:
+                    continue
+                
+
+                if bigrams:
+
+                    line_bigrams = get_ngrams(line.copy(), 2, True)
+                    for bigram in line_bigrams:
+                        # We have to ignore the stopwords
+                        if bigram[0] in stopwords or bigram[1] in stopwords:
+                            continue
+                        bigram = bigram[0] + " " + bigram[1]
+                        add_X('biword', bigram)
+
 
                 for word in line:
+                        
                     stats['nwords'] += 1
 
-                    if word in stopwords:
-                        pass    # We pass to the next word
-                    # All operations forward will not count the stopwords
-                    stats['nwords_no_stopwords'] += 1
-                    add_X('word', word)
+                    if word not in stopwords:
 
-                    if bigrams:
-                        func_bigram_symbols(word)
+                        # All operations forward will not count the stopwords
+                        stats['nwords_no_stopwords'] += 1
+                        add_X('word', word)
 
-                    for symbol in word:
-                        add_X('symbol', symbol)
+                        if bigrams:
+                            for i in range(len(word)-1):
+
+                                bigram = word[i] + word[i+1]
+                                add_X('bisymbol', bigram)
+
+                        for symbol in word:
+                            add_X('symbol', symbol)
+                        
+                
 
         ################################ ANÁLISIS DE BIGRAMAS ###################
 
@@ -484,10 +481,10 @@ class WordCounter:
 
         if use_json:
             new_filename += "_stats.json"
-            self.write_stats_json(new_filename, filename, lower, stats, stopwordsfile is not None, bigrams, full)
+            self.write_stats_json(new_filename, filename, lower, stats, stopwordsfile is not None, bigrams, entropy, full)
         else:
             new_filename += "_stats.txt"
-            self.write_stats_text(new_filename, filename, lower, stats, stopwordsfile is not None, bigrams, full)
+            self.write_stats_text(new_filename, filename, lower, stats, stopwordsfile is not None, bigrams, entropy, full)
 
 
 
