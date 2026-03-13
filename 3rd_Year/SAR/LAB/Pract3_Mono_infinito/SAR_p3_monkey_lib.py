@@ -57,8 +57,6 @@ class Monkey():
         n = self.info['n'] # longintud del n-grama: n-1 serán las palabras que consideraremos como historia previa. Deberemos añadir n-1 $ al inicio. El $ final ya está añadido en compute_lm
         # Debemos rellenar cada lm.
 
-        print(sentence)
-
         for i in range(2, n+1):
             # Cada lm tiene una n distinta. Crearemos para cada iteración una nueva frase con n-1 $ al inicio
             new_sentence = "$ "*(i-1) + sentence
@@ -168,6 +166,9 @@ class Monkey():
                 wl = self.info['lm'][i][prev]
                 print(f"'{' '.join(prev)}'\t=>\t{wl[0]}\t=>\t{', '.join(['%s:%s' % (x[1], x[0]) for x in wl[1]])}" , file=fh)
 
+
+
+
     """
     generate_sentences: genera frases aleatorias utilizando el modelo de lenguaje
     """
@@ -175,7 +176,7 @@ class Monkey():
         # Se genera una historia inicial = tupla de talla n-1
         # Si no se proporciona prefijo, se inicia con n-1 "$". Si hay prefijo, se limpia, se separa por palabras y se crea el inicio rellenando con "$" por la izquierda
         ini = ""
-        n = n if n else 3      # CAMBIAR: n es optativo. Por defecto es el mayor número posible ¿? He puesto 3 por ahora
+        n = n if n else self.info['n']      # CAMBIAR: n es optativo. Por defecto es el mayor número posible ¿? He puesto 3 por ahora
 
         if prefix:
             ini = self.r2.sub(' ', prefix).lower() # Quitamos todos los NO símbolos alfanuméricos
