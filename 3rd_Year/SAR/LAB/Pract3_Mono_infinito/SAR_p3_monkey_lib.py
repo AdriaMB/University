@@ -54,7 +54,8 @@ class Monkey():
                         2) Los valores son diccionarios con claves = palabras que van después de la tupla y valores = frecuencia de esa palabra
     """
     def index_sentence(self, sentence:str):
-        n = self.info['n'] # longintud del n-grama: n-1 serán las palabras que consideraremos como historia previa. Deberemos añadir n-1 $ al inicio. El $ final ya está añadido en compute_lm
+        n = self.info['n'] # longintud del n-grama: n-1 serán las palabras que consideraremos como historia previa. 
+        # Deberemos añadir n-1 $ al inicio. El $ final ya está añadido en compute_lm
         # Debemos rellenar cada lm.
 
         for i in range(2, n+1):
@@ -129,8 +130,9 @@ class Monkey():
 
                         
         for i in range(2, n+1):
-            convert_to_lm_dict(self.info['lm'][i])  # Convertimos cada uno de los lm que hemos creado en index_sentence a la forma diccionario más eficiente
-
+            # Convertimos cada uno de los lm que hemos creado en index_sentence a la forma diccionario más eficiente
+            convert_to_lm_dict(self.info['lm'][i])  
+            
     def load_lm(self, filename:str):
         with open(filename, "rb") as fh:
             self.info = pickle.load(fh)
@@ -176,7 +178,7 @@ class Monkey():
         # Se genera una historia inicial = tupla de talla n-1
         # Si no se proporciona prefijo, se inicia con n-1 "$". Si hay prefijo, se limpia, se separa por palabras y se crea el inicio rellenando con "$" por la izquierda
         ini = ""
-        n = n if n else self.info['n']      # CAMBIAR: n es optativo. Por defecto es el mayor número posible ¿? He puesto 3 por ahora
+        n = n if n else self.info['n']      # CAMBIAR: n es optativo. Por defecto es el mayor número posible
 
         if prefix:
             ini = self.r2.sub(' ', prefix).lower() # Quitamos todos los NO símbolos alfanuméricos
