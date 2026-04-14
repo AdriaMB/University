@@ -8,7 +8,7 @@ import re
 import sys
 from typing import List, Optional, TextIO
 
-## Nombres: 
+## Nombres: Blanca Verenguer Tomás              Adrià Marín Bayarri
 
 ########################################################################
 ########################################################################

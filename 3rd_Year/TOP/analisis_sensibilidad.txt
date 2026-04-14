@@ -1,0 +1,17 @@
+
+
+
+
+
+Ci:
+    MEJORA
+        MAX -> sabemos COTA INF
+        MIN -> sabemos COTA SUP
+    EMPEORA
+        Podemos saber COTA INF & SUP
+bi:
+    EMPEORA
+        MAX -> sabemos COTA SUP
+        MIN -> sabemos COTA INF
+    MEJORA:
+        Podemos saber COTA INF & SUP
