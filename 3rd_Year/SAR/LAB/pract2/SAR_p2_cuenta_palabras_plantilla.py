@@ -110,7 +110,8 @@ class WordCounter:
             return top_X_dict
         
 
-
+        # Tomo el diccionario de palabras, lo paso a una lista de tuplas para poder ordenarlas y luego vuelvo a pasarlo a un diccionario teniendo
+        # en cuenta el límite de palabras
         def return_alphabetical_order(X) -> dict:
             top_X = [(k, stats[X][k]) for k in stats[X].keys()]
             top_X.sort()
@@ -402,14 +403,14 @@ class WordCounter:
                 if lower:
                     line = line.lower()               # if we have to put the line in lower characters
 
-                line = self.clean_re.sub(' ', line)
+                line = self.clean_re.sub(' ', line)     # substituye todos los símbolos no alfanumericos, como ,.!?@#, por espacios en blanco. Las cadenas de simbolos no alfa. se tratan como 1, y se subsituyen por 1 espacio en blanco
  
                 line = line.split()# line will be a list of words
 
                 if not line or line == ['']:
                     continue
                 
-
+                # dividimos la linea en bigramas de palabras y los tratamos
                 if bigrams:
 
                     line_bigrams = get_ngrams(line.copy(), 2, True)
@@ -431,6 +432,7 @@ class WordCounter:
                         stats['nwords_no_stopwords'] += 1
                         add_X('word', word)
 
+                        # dividimos la palabra en bigramas de simbolos y los tratamos
                         if bigrams:
                             for i in range(len(word)-1):
 
@@ -441,8 +443,6 @@ class WordCounter:
                             add_X('symbol', symbol)
                         
                 
-
-        ################################ ANÁLISIS DE BIGRAMAS ###################
 
         
 
