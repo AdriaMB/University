@@ -7,7 +7,7 @@ import jason.asSemantics.*;
 public class distance extends DefaultInternalAction {
 
 @Override
-
+// ESTO SE DEBE REALIZAR ASÍ SI O SI
 public Object execute( TransitionSystem ts,
 		Unifier un,
 		Term[] args ) throws Exception {
@@ -18,7 +18,7 @@ public Object execute( TransitionSystem ts,
                          NumberTerm p2x = (NumberTerm)args[2];
                          NumberTerm p2y = (NumberTerm)args[3];
 
-                 // 2. calculates the distance\
+                 // 2. calculates the Manhattan distance\
                          double r = Math.abs(p1x.solve()-p2x.solve()) + Math.abs(p1y.solve()-p2y.solve());
 
                 // 3. creates the term with the result and\
