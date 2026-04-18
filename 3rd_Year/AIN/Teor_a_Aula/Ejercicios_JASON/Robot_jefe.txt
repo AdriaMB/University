@@ -1,0 +1,11 @@
+!start.
+
++!start
+        <- .send(r1, achieve, start);
+            !!bucle
+
++!bucle
+        <- .print("Waiting a second");
+            .wait(1000);
+            .print("Sendign stop to r1");
+            .sned()
