@@ -1,0 +1,25 @@
+! EX8: PLANIFICACION DE PERSONAL EN JORNADAS DE 8 HORAS;
+
+SETS:
+!Definicion de sets primitivo;
+!H1: 06-10, H2: 10-14, H3: 14-18, H4: 18-22, H5: 22-02, H6: 02-06;
+Tramos/1..6/: NecesidadPersonal, Trabajadores;
+
+ENDSETS
+
+DATA:
+NecesidadPersonal= 17, 9, 19, 12, 5, 8;
+
+ENDDATA
+
+!F.O Minimizar el personal utilizado;
+MIN = @SUM(Tramos(i): Trabajadores(i));
+
+!Restricciones;
+!Personal requerido por tramo;
+@FOR(Tramos(i): 
+	Trabajadores(i) + Trabajadores(@WRAP(i-1, 6)) >= NecesidadPersonal(i));
+
+!Restringir a valores enteros;
+@FOR(Tramos(i): @GIN(Trabajadores(i)));
+

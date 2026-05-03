@@ -1,0 +1,51 @@
+!Definicion de las variables;
+SETS:
+Tramos/1..6/:RespNecesitados, InfoNecesitados, SueldoResp, SueldoInfo, RespTramo, InfoTramo;
+ENDSETS
+
+
+DATA:
+RespNecesitados = 1,2,4,4,2,2;
+InfoNecesitados = 2,4,8,10,6,3;
+SueldoResp = 60, 50, 50, 50, 60, 70;
+SueldoInfo =  36, 30, 30, 30, 36, 42;
+
+ENDDATA
+
+
+!FO: minimizar costes;
+MIN = @SUM(Tramos(i): RespTramo(i) * SueldoResp(i) + InfoTramo(i)*SueldoInfo(i));
+
+!Restricciones;
+@FOR(Tramos(i):
+	RespTramo(i) + RespTramo(@IF(i #EQ# 1, 6, i-1)) >= RespNecesitados(i));
+@FOR(Tramos(i):
+	InfoTramo(i) + InfoTramo(@IF(i #EQ# 1, 6, i-1)) >= InfoNecesitados(i));
+
+@FOR(Tramos(i): @GIN(RespNecesitados(i)));
+@FOR(Tramos(i): @GIN(InfoNecesitados(i)));
+
+!
+SETS:
+
+TIPO: SUELDO
+FRANJA: REQ_RESP, REQ_INFO, PLUS
+TXF(TIPO, FRANJA) : X
+
+ENDSETS
+
+DATA:
+TIPO = RESP, INFO
+SUELDO = 6.25, 3.75
+FRANJA = F1, F2, F3, F4, F5, F6
+REQ_RESP = 1, 2, 4, 4, 2, 2
+REQ_INFO = 2, 4, 8, 10, 6, 3
+
+PLUS = 1.4, 1, 1, 1, 1, 1.4
+
+ENDDATA
+
+
+MIN = @SUM(TIPO(I): @SUM(FRANJA(I)))
+
+;
