@@ -93,3 +93,25 @@ Uds. Vendidas mes t + Uds. Stock mes t = Uds. Producidas mes t + Uds. Stock mes 
 @FOR(Fabricacion(i, j) | i#NE#6:
 	[STOCK_OTROS_MESES] @BND(0, UStock, MaxStock(i,j) ));
 
+! OPERADORES LOGICOS Y FUNCIONES MATEMATICAS EN LINGO
+#NOT#
+#AND#
+#OR#
+#EQ#
+#NE#
+#GT#
+#GE#
+#LT#
+#LE#
+
+
+
+@ABS(X
+@ACOS(
+@MAX(set:expression
+@MIN(set:expressino
+@SMAX(lista)
+@SMIN(lista)
+
+;
+

@@ -1,0 +1,18 @@
+!Parte 2 del ejercicio 8;
+
+SETS:
+!NecesidadPersonal: Restriccion del propio ejercicio, la determinaremos en el apartado de DATA;
+!PersonalXTramo: Valor que el modelo debera calcular para encajar todo ;
+Tramo /1..12/: NecesidadPersonal, PersonalXTramo;
+ENDSETS
+
+DATA:
+NecesidadPersonal = 17, 11, 9, 7, 13, 19, 12, 8, 5, 3, 3, 8;
+ENDDATA
+
+!FO: minimizar el personal utlizado;
+MIN = @SUM(Tramo(i): PersonalXTramo(i));	!minimizar la suma del personal utilizado por tramo;
+
+!Restricciones;
+@FOR(Tramo(i):
+	PersonalXTramo(i) + PersonalXTramo(@WRAP(i-1, 12)) >= NecesidadPersonal(i));
