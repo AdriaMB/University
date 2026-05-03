@@ -1,0 +1,34 @@
+
+SETS:
+    TIPO: SUELDO;
+    FRANJA: REQ_RESP, REQ_INFO, PLUS;
+    TXF(TIPO, FRANJA): X; ! X(i,j) es el numero de empleados de tipo i que inician turno en franja j;
+ENDSETS
+
+DATA:
+    TIPO = RESP, INFO;
+    SUELDO = 6.25, 3.75;
+    
+    FRANJA = F1, F2, F3, F4, F5, F6;
+    REQ_RESP = 1, 2, 4, 4, 2, 2;
+    REQ_INFO = 2, 4, 8, 10, 6, 3;
+    
+    ! El plus del 40% (1.4) aplica en F1 y F6;
+    PLUS = 1.4, 1, 1, 1, 1, 1.4;
+ENDDATA
+
+! 1. FUNCION OBJETIVO: Minimizar el costo total;
+! El costo de un turno iniciado en 'j' es: (Sueldo * 4h * Plus_j) + (Sueldo * 4h * Plus_{j+1});
+MIN = @SUM(TIPO(i): @SUM(FRANJA(j): 
+    X(i,j) * (SUELDO(i) * 4 * PLUS(j) + SUELDO(i) * 4 * PLUS(@IF(j #EQ# 6, 1, j+1)))
+));
+
+! 2. RESTRICCIONES DE COBERTURA;
+! Para cada franja j, los empleados que trabajan son los que empezaron en j o en j-1;
+@FOR(FRANJA(j):
+    @SUM(TIPO(i) | i #EQ# 1: X(i,j) + X(i, @IF(j #EQ# 1, 6, j-1))) >= REQ_RESP(j);
+    @SUM(TIPO(i) | i #EQ# 2: X(i,j) + X(i, @IF(j #EQ# 1, 6, j-1))) >= REQ_INFO(j);
+);
+
+! 3. NATURALEZA DE LAS VARIABLES;
+@FOR(TXF: @GIN(X)); ! Los empleados deben ser valores enteros;
