@@ -1,0 +1,36 @@
+!Si = numero de seniors EN TURNO i;
+!Ai = numero de aprendices EN TURNO i;
+
+!FO: MINIMIIZAR COSTES;
+MIN = (S1 + S2 + S3 +S4)*120*4 + (A1 + A2+ A3+ A4)*70*4;
+
+!RESTRICCIONES;
+@GIN(S1);
+@GIN(S2);
+@GIN(S3);
+@GIN(S4);
+
+@GIN(A1);
+@GIN(A2);
+@GIN(A3);
+@GIN(A4);
+
+!FRANJAS HORARIAS;
+[F1] S1*10 + A1*6  >= 60;
+[F2] 10*(S1 + S2) + 6*(A1+A2) >= 90;
+[F3] 10*(S1+S2+S3) + 6*(A1+A2+A3) >= 100;
+[F4] 10*(S1+S2+S3+S4)+6*(A1+A2+A3+A4) >= 60;
+[F5] 10*(S2+S3+S4) + 6*(A2+A3+A4)>= 50;
+[F6] 10*(S3+S4) + 6*(A3+A4)>= 40;
+[F7] S4*10 + A4*6  >= 30;
+
+!LIMITACION DE PERSONAL;
+[SENIORS_TOTAL]	S1 + S2 + S3+ S4 <= 12;
+[APRENDICES_TOTAL] A1+ A2+ A3+ A4 <=8;
+
+!CONDICION ADICIONAL. c);
+!
+[RATIO_F3] S1+S2+S3 >= 0.5*(A1+A2+A3)
+[RATIO_F4] S1+S2+S3+S4 >= 0.5*(A1+A2+A3+A4)
+[RATIO_F5] S2+S3+S4 >= 0.5*(A2+A3+A4)
+;

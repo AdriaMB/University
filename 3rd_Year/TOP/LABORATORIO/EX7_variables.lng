@@ -1,0 +1,22 @@
+!Xi: numero de empleados en el turno i;
+
+!F.O: minimizar el numero de empleados;
+MIN = X1+X2+X3+X4+X5+X6;
+
+!RESTRICCIONES;
+@GIN(X1);
+@GIN(X2);
+@GIN(X3);
+@GIN(X4);
+@GIN(X5);
+@GIN(X6);
+
+[T1]X1 + X6 >= 5;
+[T2]X2 + X1 >= 7;
+[T3]X3 + X2 >= 13;
+[T4]X4 + X3 >= 12;
+[T5]X5 + X4 >= 4;
+[T6]X6 + X5 >= 3;
+
+
+

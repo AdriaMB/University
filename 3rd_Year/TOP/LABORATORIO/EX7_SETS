@@ -1,0 +1,19 @@
+!ex7_con sets;
+SETS: !NECESIDAD son los empleados requeridos en un turno. EMPLEADOS son las variables que vamos a ajustar;
+TURNOS/1..6/: NECESIDAD, EMPLEADOS;
+ENDSETS
+
+DATA:
+NECESIDAD = 5, 7, 13, 12, 4, 3;
+ENDDATA
+
+!F.O;
+MIN = @SUM(TURNOS(i): EMPLEADOS(i));
+
+
+!RESTRICCIONES;
+@FOR(TURNOS(i): @GIN(EMPLEADOS(i)) ); !POR CADA TURNO, LA VARIABLE EMPLEADOSi DEBE SER ENTERA;
+
+!DEMANDA DE CADA TRAMO;
+@FOR(TURNOS(i):
+	EMPLEADOS(i) + EMPLEADOS(@IF(i #EQ# 1, 6, i-1)) >= NECESIDAD(i) );  

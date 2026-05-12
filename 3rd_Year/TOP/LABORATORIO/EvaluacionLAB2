@@ -1,4 +1,4 @@
-!Definicion de las variables;
+ñññññññññññññññññññññññññññññññññññññññññ!Definicion de las variables;
 SETS:
 Tramos/1..6/:RespNecesitados, InfoNecesitados, SueldoResp, SueldoInfo, RespTramo, InfoTramo;
 ENDSETS
