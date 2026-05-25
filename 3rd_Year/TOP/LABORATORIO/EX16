@@ -1,0 +1,88 @@
+!
+Xij: num de productos generados por la factoria i destinados al cliente j
+i = {1,2,3,4,5}
+j = {1,2}
+
+di: 0 si no realizamos la ampliacion en la fabrica i, 1 si la realizamos
+i = {1,2,3,4,5}
+
+Y: demanda total NO SATISFECHA = Y1 + Y2
+Y1: demanda total NO SATISFECHA de cliente 2 ( Y1 <= 50)
+Y2: demanda total NO SATISFECHA de cliente 2 ( 50 < Y2 <= 200)
+
+h1: 1 si la demanda no satisfecha es menor a 50 -> coste de 1900
+h2: 1 si la demanda no satisfecha es mayor a 50 -> coste de 2000
+
+r12: 0 si no se realizan las ampliaciones d1 y d2. 1 si se realizan
+
+f45: 1 si la factoria 4 envia mas de 400 tons
+
+;
+
+
+!FO = MINIMIZAR COSTES = coste envio + coste ampliacion + coste demanda no satisfecha;
+MIN = (X11*1000 + X12*5000 + X21*1500 + X22*4000 + X31*2000 + X32*3000 + X41*2500 + X42*2000 + X51*3000 + X52*1000) + 
+      (d1*50000 + d2*60000 - r12*10000 + d3*70000 + d4*80000 + d5*90000)+
+      (Y1*1900  + Y2*2000)
+;
+
+!RESTRICCIONES;
+[DEMANDA_C1] X11+X21+X31+X41+X51 = 2000;
+[DEMANDA_C2] X12+X22+X32+X42+X52 + Y = 3000;
+
+!demanda no satisfecha;
+[LIMIT_Y] Y <= 200;
+	1 <= Y;
+[Y_Y1_Y2] Y = Y1 + Y2;
+[h1_Y1] Y1 <= 50 * h1; 
+[h2_Y2] 50*h2 <= Y2;    
+                 Y2 <= 200*h2;
+[h1_h2] h1 + h2 = 1;
+
+!stock;
+[STOCK_F1] X11 + X12 <= 400 + d1*500;
+[STOCK_F2] X21 + X22 <= 300 + d2*1000;
+[STOCK_F3] X31 + X32 <= 200 + d3*1500;
+[STOCK_F4] X41 + X42 <= 100 + d4*2000;
+[STOCK_F5] X51 + X52 <= 0 + d5*2500;
+
+!si ampliaciones 1 y 2, descuento;
+[d1_d2_r12] r12 <= 0.5*(d1 + d2);
+
+!Como mucho 3 de 5 amplaciones;
+[Max_Ampliaciones] d1+d2+d3+d4+d5 <= 3;
+
+!si factoria 4 envia...;
+[f45_activacion] X41 + X42 <= 400 + M*f45;
+[LimiteF5]: X51 + X52 <= 1500 + M*(1-f45);
+
+@GIN(X11);
+@GIN(X21);
+@GIN(X31);
+@GIN(X41);
+@GIN(X51);
+
+@GIN(X12);
+@GIN(X22);
+@GIN(X32);
+@GIN(X42);
+@GIN(X52);
+
+@BIN(d1);
+@BIN(d2);
+@BIN(d3);
+@BIN(d4);
+@BIN(d5);
+
+@GIN(Y1);
+@GIN(Y2);
+@BIN(h1);
+@BIN(h2);
+
+@BIN(r12);
+
+@BIN(f45);
+@GIN(M);
+
+
+

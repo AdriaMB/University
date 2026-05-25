@@ -1,0 +1,52 @@
+! VARIABLES
+Ri: numero de responsables reaslizando el turno i 
+Ii: numero de informadores reaalizando el turno i
+M1: numero de vigilantes mixtos trabajando como Responsables de 8 a 12 e Informantes de 12 a 16
+M2: numero de vigilantes mixtos trabajando como Informantes de 8 a 12 y Responsables de 12 a 16
+;
+
+!FO: Minimizar los costes;
+MIN = R1*60 + R2*50 + R3*50 + R4*50 + R5*60 + R6*70 + 
+      I1*37.5 + I2*30 + I3*30 + I4*30 + I5*37.5 + I6*45 + 
+      (M1 + M2)*50;
+
+!RESTRICCIONES;
+!Cantidad minima en cada franja horaria;
+[F1_R] R1 + R6 >= 1;
+[F1_I] I1 + I6 >= 2;
+
+[F2_R] R1 + R2 >= 2;
+[F2_I] I1 + I2 >= 4;
+
+[F3_R] R2 + R3 + M1 >= 4;
+[F3_I] I2 + I3 + M2 >= 8;
+
+[F4_R] R3 + R4 + M2 >= 4;
+[F4_I] I3 + I4 + M1 >= 10;
+
+[F5_R] R4 + R5 >= 2;
+[F5_I] I4 + I5 >= 6;
+
+[F6_R] R5 + R6 >= 2;
+[F6_I] I5 + I6 >= 3;
+
+
+
+
+!Dominios de variables;
+@GIN(R1);
+@GIN(R2);
+@GIN(R3);
+@GIN(R4);
+@GIN(R5);
+@GIN(R6);
+
+@GIN(I1);
+@GIN(I2);
+@GIN(I3);
+@GIN(I4);
+@GIN(I5);
+@GIN(I6);
+
+@GIN(M1);
+@GIN(M2);

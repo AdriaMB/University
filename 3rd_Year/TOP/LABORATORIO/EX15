@@ -1,0 +1,53 @@
+!
+XA: num de articulos de tipo A producidos
+XA1: num de articulos A (primer coste aplicado)
+XA2: num de articulos A (segundo coste aplicado)
+dA1: 1 si aplicamos el primer coste (XA < 200)
+dA2: 1 si aplicamos el segundo coste (XA >= 200)
+
+XB: num de articulos de tipo B producidos
+XB1: num de articulos B (primer precio aplicado)
+XB2: num de articulos B (segundo precio aplicado)
+dB1: 1 si aplicamos el primer precio (XB <= 300)
+dB2: 1 si aplicamos el segundo precio (XB > 300)
+
+;
+
+!FO: maximizar el beneficio;
+MAX = (XA * 7.20 + (XB1*8.4 + XB2*6.0)) - ((XA1*2.4 + XA2*1.2) + XB*1.8);
+
+!RESTRICCIONES;
+[MaxM1] XA*4 + XB*9 <= 7200;
+[MaxM2] XA*5 + XB*3 <= 6000;
+
+[ArtiA] XA = XA1 + XA2;
+[ArtiB] XB = XB1 + XB2;
+
+[dA1_XA1]  XA1 <= 199*dA1;
+[dA2_XA2]  200*dA2 <= XA2 ;
+	  	  XA2 <= M*dA2;
+[dA1_dA2] dA1 + dA2 <= 1;
+
+
+
+[dB1_XB1] XB1 <= 300*dB1;
+[dB2_XB2] 300*dB2 <= XB2;
+                     XB2 <= M*dB2;
+[dB1_dB2] dB1 + dB2 <= 1;
+
+[LimitXB] 200 <= XB;
+                 XB <= 500 + M*(1-dA2);
+
+@GIN(XA);
+@GIN(XA1);
+@GIN(XA2);
+@BIN(dA1);
+@BIN(dA2);
+
+@GIN(XB);
+@GIN(XB1);
+@GIN(XB2);
+@BIN(dB1);
+@BIN(dB2);
+
+@GIN(M);
