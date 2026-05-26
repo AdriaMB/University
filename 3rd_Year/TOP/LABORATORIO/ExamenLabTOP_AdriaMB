@@ -1,0 +1,61 @@
+!
+Adria Marin Bayarri
+MOD.A34
+;
+
+!VARIABLES
+Xi: 0-> no contratamos el dron i, 1 -> lo contratamos
+i = {1,2,3,4,5,6,7,8}
+
+Cj: 0 -> compañia j NO se utiliza, 1-> compañia j se utiliza
+j = {1 = FlightSys, 2 = CivilUAV, 3 = Dronify Co} 
+
+P: 0 -> No se han alquilado > 4 drones, 1-> se han alquilado > 4 drones (penalizacion)
+;
+
+
+!FO: Reducir el coste;
+MIN= X1*200 + X2*300 + X3*400 + X4*500 + X5*400 + X6*200 + X7*100 + X8*300; !+ P*250;
+
+
+!RESTRICCIONES;
+!Naturaleza de las variables;
+@BIN(X1);
+@BIN(X2);
+@BIN(X3);
+@BIN(X4);
+@BIN(X5);
+@BIN(X6);
+@BIN(X7);
+@BIN(X8);	
+
+!@BIN(P);	
+
+!
+@BIN(C1)
+@BIN(C2)
+@BIN(C3);
+																						
+!Todas las zonas deben estar vigiladas;
+[A] X1 + X4 + X8 >= 1;
+[B] X1 + X3 + X5 + X6 >= 1;
+[C] X1 + X4 + X5 >= 1;
+[D] X2 + X5 + X7 >= 1;
+[E] X3 + X4 >= 1;
+[F] X1 + X2 + X6> = 1;
+[G] X2 + X5 + X8 >= 1;
+[H] X2 + X3 + X7 >= 1;
+[I] X4 + X6 + X8 >= 1;
+[J] X3 + X6 >= 1;
+
+!Si alquilamos mas de 4 drones tendremos penalizacion;
+![Penalizacion] X1+X2+X3+X4+X5+X6+X7+X8 <= 4 + 4*P;
+
+
+!Asociamos los drones a las compañias respectivas
+[FlightSys] X1 + X2 + X3 <= 3*C1
+[CivilAUV] X4 + X5+ X6 <= 3*C2
+[Dronify_Co] X7 + X8 <= 2*C3;
+
+!Limitamos a 2 compañias utilizadas
+[Limit_comp] C1 + C2 + C3 <= 2;
